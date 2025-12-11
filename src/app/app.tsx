@@ -148,8 +148,8 @@ export default function App() {
                                     Open to work
                                 </div>
 
-                                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight">
-                                    Hi, I'm <SplitText className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 inline-block">{PROFILE.name.split(' ')[0]}</SplitText>
+                                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white tracking-tight">
+                                    Hi, I'm <SplitText className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-500 dark:to-pink-400 inline-block">{PROFILE.name.split(' ')[0]}</SplitText>
                                 </h1>
 
                                 <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
