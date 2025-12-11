@@ -1,7 +1,7 @@
 import { Github, Twitter, Linkedin, Globe, Code, Mail } from 'lucide-react';
 
 export const PROFILE = {
-    name: "Manish Bhaktisagar",
+    name: "Manish Bhakti Sagar",
     role: "Cloud | Node.js | React",
     tagline: "Computer Science student passionate about full-stack development, cloud architecture, and enhancing user experiences.",
     location: "Bhubaneswar, Odisha, India",

@@ -169,27 +169,30 @@ export default function App() {
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-                                    <button
+                                    {/*<button
                                         onClick={() => setActiveTab('projects')}
                                         className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-transform active:scale-95 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
                                     >
                                         View Projects <ArrowRight size={18} />
-                                    </button>
-                                    <div className="flex items-center gap-4 px-4 justify-center">
-                                        <a href={PROFILE.socials.github} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
-                                            <Github size={24} />
+                                    </button>*/}
+                                    <div className="flex justify-center gap-6 mb-8">
+                                        <a href={PROFILE.socials.github} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-black hover:text-white transition-all">
+                                            <Github size={20} />
                                         </a>
-                                        <a href={PROFILE.socials.twitter} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-blue-400 transition-colors">
-                                            <Twitter size={24} />
+                                        <a href={PROFILE.socials.twitter} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-400 hover:text-white transition-all">
+                                            <Twitter size={20} />
                                         </a>
-                                        <a href={PROFILE.socials.linkedin} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors">
-                                            <Linkedin size={24} />
+                                        <a href={PROFILE.socials.linkedin} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-700 hover:text-white transition-all">
+                                            <Linkedin size={20} />
                                         </a>
-                                        <a href={PROFILE.socials.reddit} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-orange-500 transition-colors">
-                                            <Globe size={24} />
+                                        <a href={PROFILE.socials.reddit} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-orange-500 hover:text-white transition-all">
+                                            <Globe size={20} />
                                         </a>
-                                        <a href={PROFILE.socials.hackerrank} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-green-600 transition-colors">
-                                            <Code size={24} />
+                                        <a href={PROFILE.socials.hackerrank} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-all">
+                                            <Code size={20} />
+                                        </a>
+                                        <a href={`mailto:${PROFILE.email}`} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-all">
+                                            <Mail size={20} />
                                         </a>
                                     </div>
                                 </div>
@@ -208,7 +211,7 @@ export default function App() {
                                     </div>
 
                                     {/* Floating Elements */}
-                                    <div className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
+                                    { /*<div className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
                                         <div className="bg-green-100 p-2 rounded-lg text-green-600">
                                             <Code size={20} />
                                         </div>
@@ -216,13 +219,13 @@ export default function App() {
                                             <p className="text-xs text-gray-500">Skills</p>
                                             <p className="font-bold text-gray-900 dark:text-white">React, Flask</p>
                                         </div>
-                                    </div>
+                                    </div>*/}
                                 </div>
                             </div>
                         </section>
 
                         {/* Featured Projects Preview */}
-                        <section>
+                        {/*<section>
                             <div className="flex justify-between items-end mb-8">
                                 <SectionTitle title="Latest Projects" />
                                 <button onClick={() => setActiveTab('projects')} className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1 mb-8">
@@ -256,7 +259,7 @@ export default function App() {
                                     </Card>
                                 ))}
                             </div>
-                        </section>
+                        </section>*/}
                     </div>
                 )}
 
@@ -403,7 +406,7 @@ export default function App() {
             {/* Footer */}
             <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12 mt-12">
                 <div className="max-w-6xl mx-auto px-4 text-center">
-                    <div className="flex justify-center gap-6 mb-8">
+                    {/*<div className="flex justify-center gap-6 mb-8">
                         <a href={PROFILE.socials.github} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-black hover:text-white transition-all">
                             <Github size={20} />
                         </a>
@@ -422,9 +425,9 @@ export default function App() {
                         <a href={`mailto:${PROFILE.email}`} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-all">
                             <Mail size={20} />
                         </a>
-                    </div>
+                    </div>*/}
                     <p className="text-gray-500 dark:text-gray-600">
-                        © {new Date().getFullYear()} {PROFILE.name}. Built with React & Tailwind.
+                        © {new Date().getFullYear()} . Built with love by {PROFILE.name}.
                     </p>
                 </div>
             </footer>
