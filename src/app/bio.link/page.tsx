@@ -100,25 +100,39 @@ export default function LinksPage() {
                 </div>
 
                 {/* Links List */}
-                <div className="w-full space-y-4 mb-12">
-                    {BIO_LINKS.map((link, idx) => (
-                        <a
-                            key={idx}
-                            href={link.url}
-                            target={link.url.startsWith('http') ? "_blank" : "_self"}
-                            rel="noreferrer"
-                            className="group block w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-500 rounded-[20px] p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg shadow-sm relative overflow-hidden"
-                        >
-                            <div className="flex items-center justify-center relative z-10">
-                                <span className="absolute left-2 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-                                    {/* Optional: Icon can go here if we add icons to BIO_LINKS data */}
-                                </span>
-                                <span className="font-semibold text-gray-700 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white tracking-wide">
-                                    {link.label}
-                                </span>
-                            </div>
-                        </a>
-                    ))}
+                <div className="w-full flex flex-col items-center mb-12">
+                    <div className="w-full max-w-xl space-y-5">
+                        {BIO_LINKS.map((link, idx) => (
+                            <a
+                                key={idx}
+                                href={link.url}
+                                target={link.url.startsWith("http") ? "_blank" : "_self"}
+                                rel="noreferrer"
+                                className="block"
+                            >
+                                {/* Outer border (creates the double-outline look) */}
+                                <div className="rounded-[18px] p-[2px] hover:scale-[1.01] transform transition-all duration-200">
+                                    {/* Inner button surface */}
+                                    <div
+                                        className="flex items-center justify-center gap-3 rounded-[16px] py-5 px-6 bg-white dark:bg-gray-800 border border-black/90 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200"
+                                        role="button"
+                                        aria-label={link.label}
+                                    >
+                                        {/* optional icon */}
+                                        {link.icon && (
+                                            <span className="opacity-80">
+                                                <link.icon size={20} />
+                                            </span>
+                                        )}
+
+                                        <span className="text-center text-gray-800 dark:text-gray-100 font-medium tracking-wide text-sm md:text-base">
+                                            {link.label}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Footer */}
