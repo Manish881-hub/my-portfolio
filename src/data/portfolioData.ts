@@ -5,7 +5,7 @@ export const PROFILE = {
     role: "Cloud | Node.js | React",
     tagline: "Computer Science student passionate about full-stack development, cloud architecture, and enhancing user experiences.",
     location: "Bhubaneswar, Odisha, India",
-    email: "contact@manish.dev",
+    email: "bhaktisagar.manish@gmail.com",
     socials: {
         github: "https://github.com/Manish881-hub",
         twitter: "https://x.com/manishbhakti?s=21",
@@ -16,7 +16,7 @@ export const PROFILE = {
 };
 
 export const BADGES = [
-    { title: "React Developer", icon: "⚛️", color: "bg-blue-100 text-blue-800" },
+    { title: "Software Developer", icon: "⚛️", color: "bg-blue-100 text-blue-800" },
     { title: "Cloud Enthusiast", icon: "☁️", color: "bg-sky-100 text-sky-800" },
     { title: "Python/Flask", icon: "🐍", color: "bg-yellow-100 text-yellow-800" },
     { title: "Problem Solver", icon: "🧩", color: "bg-purple-100 text-purple-800" }
