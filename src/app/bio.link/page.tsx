@@ -109,10 +109,10 @@ export default function LinksPage() {
                                 className="block"
                             >
                                 {/* Outer border (creates the double-outline look) */}
-                                <div className="rounded-[18px] p-[2px] hover:scale-[1.01] transform transition-all duration-200">
+                                <div className="rounded-[20px] p-[2px] bg-transparent border border-black/5 dark:border-white/10 hover:scale-[1.01] transform transition-all duration-200">
                                     {/* Inner button surface */}
                                     <div
-                                        className="flex items-center justify-center gap-3 rounded-[16px] py-5 px-6 bg-white dark:bg-gray-800 border border-black/90 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200"
+                                        className="flex items-center justify-center gap-3 rounded-[18px] py-5 px-6 bg-white dark:bg-[#0b1320] border border-black/90 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200"
                                         role="button"
                                         aria-label={link.label}
                                     >

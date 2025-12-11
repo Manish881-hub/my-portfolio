@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,6 +25,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function () {
+            try {
+              const saved = localStorage.getItem('theme');
+              if (saved === 'dark') {
+                document.documentElement.classList.add('dark');
+              } else if (saved === 'light') {
+                document.documentElement.classList.remove('dark');
+              } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+              }
+            } catch (e) {}
+          })();`}
+        </Script>
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#071026" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
