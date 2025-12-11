@@ -7,7 +7,6 @@ import {
     Linkedin,
     BookOpen,
     Code,
-    Briefcase,
     Mail,
     Menu,
     X,
@@ -25,7 +24,7 @@ import {
     FileText,
     CalendarClock
 } from 'lucide-react';
-import { PROFILE, BADGES, PROJECTS, BLOGS, TIMELINE_DATA, CERTIFICATIONS } from '../data/portfolioData';
+import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfolioData';
 import Timeline from '../components/timeline';
 
 
@@ -109,7 +108,7 @@ export default function App() {
                             <NavLink tab="about" label="About" icon={Users} />
                             <NavLink tab="projects" label="Projects" icon={Code} />
                             <NavLink tab="blog" label="Blog" icon={BookOpen} />
-                            <NavLink tab="experience" label="Experience" icon={Briefcase} />
+
                             <a
                                 href="/cv"
                                 className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 w-full md:w-auto text-left md:text-center text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -156,7 +155,7 @@ export default function App() {
                         <NavLink tab="about" label="About" icon={Users} />
                         <NavLink tab="projects" label="Projects" icon={Code} />
                         <NavLink tab="blog" label="Blog" icon={BookOpen} />
-                        <NavLink tab="experience" label="Experience" icon={Briefcase} />
+
                         <a
                             href="/cv"
                             className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 w-full md:w-auto text-left md:text-center text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -426,48 +425,7 @@ export default function App() {
                     </div>
                 )}
 
-                {/* --- EXPERIENCE SECTION --- */}
-                {activeTab === 'experience' && (
-                    <div className="animate-in fade-in zoom-in-95 duration-300 max-w-3xl mx-auto">
-                        <SectionTitle title="Experience & Education" subtitle="My academic journey and professional milestones." />
 
-                        <div className="relative border-l-2 border-gray-200 dark:border-gray-700 ml-3 md:ml-6 space-y-12 pl-8 py-4">
-                            {TIMELINE_DATA.map((item, idx) => (
-                                <div key={idx} className="relative group">
-                                    {/* Timeline Dot */}
-                                    <div className={`absolute -left-[41px] md:-left-[43px] top-6 h-6 w-6 rounded-full border-4 border-white dark:border-gray-900 ${item.type === 'Work' ? 'bg-blue-500' : 'bg-purple-500'} z-10 group-hover:scale-110 transition-transform`}></div>
-
-                                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow relative">
-                                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
-                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase ${item.type === 'Work' ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400' : 'bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400'}`}>
-                                                {item.date}
-                                            </span>
-                                            <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
-                                                <Globe size={12} /> {item.location}
-                                            </span>
-                                        </div>
-
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                                            {item.role}
-                                        </h3>
-                                        <div className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">
-                                            {item.org}
-                                        </div>
-
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                                            {item.description}
-                                        </p>
-
-                                        <div className={`flex items-center gap-2 text-sm font-medium pt-4 border-t border-gray-100 dark:border-gray-700 ${item.type === 'Work' ? 'text-blue-600' : 'text-purple-600'}`}>
-                                            {item.type === 'Work' ? <Briefcase size={16} /> : <GraduationCap size={16} />}
-                                            {item.type}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
 
                 {/* --- TIMELINE SECTION --- */}
                 {activeTab === 'timeline' && (
