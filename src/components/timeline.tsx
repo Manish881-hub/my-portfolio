@@ -96,8 +96,8 @@ const Timeline = () => {
                                 <div className={`w-full sm:w-[calc(50%-3rem)] pl-16 sm:pl-0 ${isLeft ? 'sm:pr-12 sm:text-right' : 'sm:pl-12 sm:text-left'
                                     }`}>
                                     <div className={`
-                    p-6 rounded-2xl bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm 
-                    border border-zinc-200/50 dark:border-zinc-800/50 shado-sm hover:shadow-xl 
+                    p-6 rounded-2xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm 
+                    border border-zinc-200 dark:border-zinc-800/50 shadow-sm hover:shadow-xl 
                     transition-all duration-300 group-hover:-translate-y-1
                     ${isLeft ? 'sm:items-end' : 'sm:items-start'}
                     flex flex-col
