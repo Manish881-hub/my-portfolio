@@ -61,15 +61,13 @@ export default function LinksPage() {
 
                 {/* Profile Section */}
                 <div className="flex flex-col items-center text-center space-y-4 mt-12 mb-8">
-                    <div className="relative w-24 h-24 md:w-28 md:h-28 group">
-                        <div className="absolute inset-0 bg-blue-500 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                        <img
-                            src="/profile.png"
-                            alt={PROFILE.name}
-                            className="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
-                        />
-                        {/* Status Indicator */}
-                        <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-white dark:border-gray-900 rounded-full z-10" title="Available for work"></div>
+                    <div className="relative w-24 h-24 md:w-28 md:h-28">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 blur-[6px] opacity-30"></div>
+                        <div className="relative rounded-full overflow-hidden w-full h-full border-4 border-white dark:border-gray-900">
+                            <img src="/profile.png" alt={PROFILE.name} className="w-full h-full object-cover" />
+                        </div>
+
+
                     </div>
 
                     <div className="space-y-2">
