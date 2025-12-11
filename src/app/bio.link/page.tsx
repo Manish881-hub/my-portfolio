@@ -2,11 +2,13 @@
 // Rebuild trigger
 import React, { useState, useEffect } from 'react';
 import { BadgeCheck, Globe, Code, Mail, Share2, Moon, Sun, Copy, Check } from 'lucide-react';
+import { useReducedMotion, motion } from 'framer-motion';
 import { PROFILE, BIO_LINKS } from '../../data/portfolioData';
 
 export default function LinksPage() {
     const [darkMode, setDarkMode] = useState(false);
     const [copied, setCopied] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         // Sync local state with global theme on mount
@@ -121,7 +123,12 @@ export default function LinksPage() {
                                 className="block"
                             >
                                 {/* Outer border (creates the double-outline look) */}
-                                <div className="rounded-[20px] p-[2px] bg-transparent border border-border-secondary hover:scale-[1.01] transform transition-all duration-200">
+                                <motion.div
+                                    className="rounded-[20px] p-[2px] bg-transparent border border-border-secondary"
+                                    whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+                                    whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                >
                                     {/* Inner button surface */}
                                     <div
                                         className="flex items-center justify-center gap-3 rounded-[18px] py-5 px-6 bg-surface border border-border-primary shadow-sm hover:shadow-md transition-shadow duration-200"
@@ -139,7 +146,7 @@ export default function LinksPage() {
                                             {link.label}
                                         </span>
                                     </div>
-                                </div>
+                                </motion.div>
                             </a>
                         ))}
                     </div>
