@@ -109,7 +109,7 @@ export const CERTIFICATIONS = [
 ];
 
 export const BIO_LINKS = [
-    { label: "Personal Website", url: "/", icon: Globe },
+    { label: "Personal Website", url: "/portfolio", icon: Globe },
     { label: "GitHub Profile", url: PROFILE.socials.github, icon: Github },
     { label: "LinkedIn Profile", url: PROFILE.socials.linkedin, icon: Linkedin },
     { label: "Twitter (X)", url: PROFILE.socials.twitter, icon: Twitter },
