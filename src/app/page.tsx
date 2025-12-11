@@ -1,5 +1,5 @@
-import App from "./app";
+import LinksPage from "./bio.link/page";
 
 export default function Home() {
-  return <App />;
+  return <LinksPage />;
 }
