@@ -26,6 +26,8 @@ import {
 } from 'lucide-react';
 import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfolioData';
 import Timeline from '../components/timeline';
+import { PillNav } from '../components/pill-nav';
+import { SplitText } from '../components/split-text';
 
 
 // --- COMPONENTS ---
@@ -88,86 +90,46 @@ export default function App() {
     return (
         <div className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
 
-            {/* Navigation */}
-            <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16 items-center">
+            {/* Floating Pill Navigation */}
+            <header className="fixed top-4 right-4 z-50">
+                <button
+                    onClick={toggleTheme}
+                    className="p-3 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors shadow-lg"
+                    aria-label="Toggle Dark Mode"
+                >
+                    {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+            </header>
 
-                        {/* Logo / Name */}
-                        <div
-                            className="font-bold text-xl tracking-tight cursor-pointer text-gray-900 dark:text-white flex items-center gap-2"
-                            onClick={() => setActiveTab('home')}
-                        >
-                            <Terminal className="text-blue-600" size={24} />
-                            <span>{PROFILE.name.split(' ')[0]}</span>
-                        </div>
+            {/* Desktop Nav: Top Right */}
+            <PillNav
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                items={[
+                    { id: 'home', label: 'Home', icon: Layout },
+                    { id: 'projects', label: 'Projects', icon: Code },
+                    { id: 'timeline', label: 'Timeline', icon: CalendarClock },
+                    { id: 'blog', label: 'Blog', icon: BookOpen },
+                    { id: 'about', label: 'About', icon: Users },
+                    { id: 'cv', label: 'CV', icon: FileText },
+                ]}
+                className="hidden md:flex absolute top-6 left-1/2 -translate-x-1/2 z-50"
+            />
 
-                        {/* Desktop Nav */}
-                        <div className="hidden md:flex items-center gap-2">
-                            <NavLink tab="home" label="Home" icon={Layout} />
-                            <NavLink tab="about" label="About" icon={Users} />
-                            <NavLink tab="projects" label="Projects" icon={Code} />
-                            <NavLink tab="blog" label="Blog" icon={BookOpen} />
-
-                            <a
-                                href="/cv"
-                                className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 w-full md:w-auto text-left md:text-center text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                            >
-                                <FileText size={18} />
-                                <span>CV</span>
-                            </a>
-                            <NavLink tab="timeline" label="Timeline" icon={CalendarClock} />
-
-
-                            <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-2"></div>
-
-                            <button
-                                onClick={toggleTheme}
-                                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 transition-colors"
-                                aria-label="Toggle Dark Mode"
-                            >
-                                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                            </button>
-                        </div>
-
-                        {/* Mobile Menu Toggle */}
-                        <div className="md:hidden flex items-center gap-4">
-                            <button
-                                onClick={toggleTheme}
-                                className="p-2 text-gray-600 dark:text-gray-400"
-                            >
-                                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                            </button>
-                            <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="p-2 text-gray-600 dark:text-gray-400"
-                            >
-                                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Mobile Nav Dropdown */}
-                {isMenuOpen && (
-                    <div className="md:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 py-4 space-y-2">
-                        <NavLink tab="home" label="Home" icon={Layout} />
-                        <NavLink tab="about" label="About" icon={Users} />
-                        <NavLink tab="projects" label="Projects" icon={Code} />
-                        <NavLink tab="blog" label="Blog" icon={BookOpen} />
-
-                        <a
-                            href="/cv"
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 w-full md:w-auto text-left md:text-center text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                        >
-                            <FileText size={18} />
-                            <span>CV</span>
-                        </a>
-                        <NavLink tab="timeline" label="Timeline" icon={CalendarClock} />
-
-                    </div>
-                )}
-            </nav>
+            {/* Mobile Nav: Bottom Center */}
+            <PillNav
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                items={[
+                    { id: 'home', label: 'Home', icon: Layout },
+                    { id: 'projects', label: 'Projects', icon: Code },
+                    { id: 'timeline', label: 'Timeline', icon: CalendarClock },
+                    { id: 'blog', label: 'Blog', icon: BookOpen },
+                    { id: 'about', label: 'About', icon: Users },
+                    { id: 'cv', label: 'CV', icon: FileText },
+                ]}
+                className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2"
+            />
 
             {/* Main Content Area */}
             <main className="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +149,7 @@ export default function App() {
                                 </div>
 
                                 <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight">
-                                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{PROFILE.name.split(' ')[0]}</span>
+                                    Hi, I'm <SplitText className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 inline-block">{PROFILE.name.split(' ')[0]}</SplitText>
                                 </h1>
 
                                 <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
