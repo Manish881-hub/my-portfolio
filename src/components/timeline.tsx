@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, GraduationCap, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface TimelineItem {
     id: number;
@@ -62,21 +63,35 @@ const timelineData: TimelineItem[] = [
 const Timeline = () => {
     return (
         <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
-            <h2 className="text-3xl font-bold text-center mb-12 text-zinc-800 dark:text-zinc-100">
+            <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-3xl font-bold text-center mb-12 text-zinc-800 dark:text-zinc-100"
+            >
                 My Journey
-            </h2>
+            </motion.h2>
 
             <div className="relative">
                 {/* Vertical Line */}
-                <div className="absolute left-4 sm:left-1/2 h-full w-0.5 bg-gradient-to-b from-zinc-200 via-zinc-400 to-zinc-200 dark:from-zinc-800 dark:via-zinc-600 dark:to-zinc-800 -translate-x-1/2 rounded-full" />
+                <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "100%" }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="absolute left-4 sm:left-1/2 h-full w-0.5 bg-gradient-to-b from-zinc-200 via-zinc-400 to-zinc-200 dark:from-zinc-800 dark:via-zinc-600 dark:to-zinc-800 -translate-x-1/2 rounded-full"
+                />
 
                 <div className="flex flex-col gap-12 sm:gap-24">
                     {timelineData.map((item, index) => {
                         const isLeft = index % 2 === 0;
 
                         return (
-                            <div
+                            <motion.div
                                 key={item.id}
+                                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className={`flex flex-col sm:flex-row items-center sm:items-start w-full relative group ${isLeft ? 'sm:flex-row' : 'sm:flex-row-reverse'
                                     }`}
                             >
@@ -85,11 +100,17 @@ const Timeline = () => {
 
                                 {/* Center Icon/Dot */}
                                 <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 z-10">
-                                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 shadow-xl group-hover:scale-110 transition-transform duration-300 group-hover:border-blue-500/30">
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 + (index * 0.1) }}
+                                        className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 shadow-xl group-hover:scale-110 transition-transform duration-300 group-hover:border-blue-500/30"
+                                    >
                                         {item.type === 'work' && <Briefcase className="w-5 h-5 text-blue-500" />}
                                         {item.type === 'education' && <GraduationCap className="w-5 h-5 text-emerald-500" />}
                                         {item.type === 'achievement' && <Star className="w-5 h-5 text-amber-500" />}
-                                    </div>
+                                    </motion.div>
                                 </div>
 
                                 {/* Content Card */}
@@ -133,7 +154,7 @@ const Timeline = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>
