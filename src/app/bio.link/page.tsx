@@ -9,13 +9,24 @@ export default function LinksPage() {
     const [copied, setCopied] = useState(false);
 
     useEffect(() => {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setDarkMode(true);
-        }
+        // Sync local state with global theme on mount
+        const isDark = document.documentElement.classList.contains('dark');
+        setDarkMode(isDark);
+
+        // Optional: Listen for mutations or storage changes if needed, but simple sync is usually enough
     }, []);
 
     const toggleTheme = () => {
-        setDarkMode(!darkMode);
+        const newMode = !darkMode;
+        setDarkMode(newMode);
+
+        if (newMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
     };
 
     const handleShare = async () => {
@@ -38,7 +49,7 @@ export default function LinksPage() {
     };
 
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+        <div className="min-h-screen transition-colors duration-300 bg-gray-50 dark:bg-gray-900">
             <div className="max-w-xl mx-auto min-h-screen flex flex-col py-8 px-4 relative">
 
                 {/* Header Controls */}
@@ -47,6 +58,7 @@ export default function LinksPage() {
                         onClick={toggleTheme}
                         className="p-2.5 rounded-full bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 shadow-sm hover:shadow-md transition-all border border-gray-100 dark:border-gray-700"
                         aria-label="Toggle Theme"
+                        suppressHydrationWarning
                     >
                         {darkMode ? <Sun size={18} /> : <Moon size={18} />}
                     </button>
