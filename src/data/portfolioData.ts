@@ -23,19 +23,52 @@ export const BADGES = [
 ];
 
 export const PROJECTS = [
+
+    {
+        title: "Dimewise AI Finance APP",
+        description: "A production-grade finance application with secure authentication. Features scalable full-stack architecture, schema management, and optimized frontend performance.",
+        tags: ["React", "AI Integration", "Auth", "SaaS"],
+        stars: "Featured",
+        link: "https://dimewise.vercel.app/"
+    },
     {
         title: "Empty Cups",
         description: "A minimal full-stack project demonstrating backend–frontend integration. Serves listing data from a JSON file via Flask REST API with a dynamic JS frontend. Containerized with Docker.",
         tags: ["Flask", "REST API", "Docker", "JavaScript"],
         stars: "Live",
-        link: "#"
+        link: "https://github.com/Manish881-hub/EmptyCups"
     },
     {
-        title: "Dimewise (AI Finance Platform)",
-        description: "A production-grade finance application with secure authentication. Features scalable full-stack architecture, schema management, and optimized frontend performance.",
-        tags: ["React", "AI Integration", "Auth", "SaaS"],
+        title: "Real Estate Tenant Platform",
+        description:
+            "A real estate tenant management system featuring tenant onboarding, property management, and secure data workflows. Built with scalable frontend architecture and modern UI components.",
+        tags: ["React", "Tailwind", "Property Management"],
+        stars: "New",
+        link: "https://github.com/Manish881-hub/Real-Estate-Tenant-1"
+    },
+    {
+        title: "CertifyME (Certification Management App)",
+        description:
+            "A full-stack certification management system allowing users to generate, verify, and manage digital certificates. Built with Flask backend and responsive client UI.",
+        tags: ["Flask", "Python", "Digital Certificates"],
         stars: "Featured",
-        link: "#"
+        link: "https://github.com/Manish881-hub/CertifyME"
+    },
+    {
+        title: "Todo App with Authentication",
+        description:
+            "A simple yet powerful Todo application with secure authentication, allowing users to manage tasks with protected routes and persistent storage.",
+        tags: ["React", "Auth", "JavaScript"],
+        stars: "New",
+        link: "https://github.com/Manish881-hub/Todo-auth"
+    },
+    {
+        title: "Firebase Login Authentication",
+        description:
+            "A secure authentication system built with Firebase, enabling email/password login, user onboarding, and protected routes. Demonstrates auth flows and reusable frontend components.",
+        tags: ["Firebase", "Auth", "React"],
+        stars: "Live",
+        link: "https://github.com/Manish881-hub/Login-Authentication-Firebase"
     }
 ];
 
