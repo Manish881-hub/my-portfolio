@@ -1,14 +1,18 @@
 import React from 'react';
 import './LogoLoop.css';
 
+interface LogoItem {
+    src: string;
+    alt: string;
+}
+
 interface LogoLoopProps {
-    items: string[];
+    items: LogoItem[];
     direction?: 'left' | 'right';
     speed?: 'slow' | 'normal' | 'fast';
 }
 
 const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 'normal' }) => {
-    // Triple the items to ensure smooth infinite scroll even on wide screens
     const duplicatedItems = [...items, ...items, ...items];
 
     const getSpeed = () => {
@@ -29,8 +33,13 @@ const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 
                 }}
             >
                 {duplicatedItems.map((item, idx) => (
-                    <div key={`${item}-${idx}`} className="logo-item text-gray-400 dark:text-gray-500 font-medium text-lg px-4">
-                        {item}
+                    <div key={`${item.alt}-${idx}`} className="logo-item px-4">
+                        <img
+                            src={item.src}
+                            alt={item.alt}
+                            className="h-12 w-auto hover:scale-105 transition-transform duration-300"
+                        />
+                        <span className="text-black dark:text-white font-bold px-2">{item.alt}</span> {/* DEBUG: Visibility Check */}
                     </div>
                 ))}
             </div>
