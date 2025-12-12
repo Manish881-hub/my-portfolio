@@ -24,6 +24,7 @@ import {
     FileText,
     CalendarClock
 } from 'lucide-react';
+import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
 import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfolioData';
 import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
@@ -298,38 +299,55 @@ export default function App() {
                     <div className="animate-in fade-in zoom-in-95 duration-300">
                         <SectionTitle title="Projects" subtitle="Building scalable applications with modern tech stacks." />
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+
+
+                        <ScrollStack
+                            itemDistance={100}
+                            itemScale={0.03}
+                            itemStackDistance={30}
+                            stackPosition="20%"
+                            scaleEndPosition="10%"
+                            baseScale={0.9}
+                            scaleDuration={0.5}
+                            rotationAmount={5}
+                            blurAmount={0}
+                            useWindowScroll={true}
+                            className=""
+                        >
                             {PROJECTS.map((project, idx) => (
-                                <Card key={idx} className="group flex flex-col h-full">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
-                                            <Code size={24} />
+                                <ScrollStackItem key={idx} itemClassName="bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 p-8 shadow-sm">
+                                    <div className="flex flex-col h-full">
+                                        <div className="flex justify-between items-start mb-6">
+                                            <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
+                                                <Code size={28} />
+                                            </div>
+                                            <a href={project.link} className="p-2 text-gray-400 hover:text-blue-500 transition-colors" target="_blank" rel="noopener noreferrer">
+                                                <ExternalLink size={24} />
+                                            </a>
+                                        </div>
+
+                                        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                                            {project.title}
+                                        </h3>
+
+                                        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 flex-grow leading-relaxed">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="pt-6 border-t border-gray-100 dark:border-gray-700 mt-auto">
+                                            <div className="flex flex-wrap gap-2 mb-6">
+                                                {project.tags.map(tag => (
+                                                    <span key={tag} className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium">
+                                                        #{tag}
+                                                    </span>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors">
-                                        {project.title}
-                                    </h3>
-
-                                    <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
-                                        {project.description}
-                                    </p>
-
-                                    <div className="pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
-                                        <div className="flex flex-wrap gap-2 mb-4">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs font-medium">
-                                                    #{tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <a href={project.link} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
-                                            View details <ExternalLink size={14} />
-                                        </a>
-                                    </div>
-                                </Card>
+                                </ScrollStackItem>
                             ))}
-                        </div>
+                        </ScrollStack>
+
                     </div>
                 )}
 
