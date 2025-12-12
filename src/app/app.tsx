@@ -118,7 +118,7 @@ export default function App() {
                     { id: 'about', label: 'About', icon: Users },
                     { id: 'cv', label: 'CV', icon: FileText },
                 ]}
-                className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2"
+                className="md:hidden fixed absolute top-4 left-1/2 -translate-x-1/2"
             />
 
             {/* Main Content Area */}
@@ -181,17 +181,17 @@ export default function App() {
                             <div className="w-full pt-4">
                                 <LogoLoop
                                     items={[
-                                        { src: 'https://cdn.simpleicons.org/react/61DAFB', alt: 'React' },
-                                        { src: 'https://cdn.simpleicons.org/nodedotjs/339933', alt: 'Node.js' },
-                                        { src: 'https://cdn.simpleicons.org/flask/000000', alt: 'Flask' },
-                                        { src: 'https://cdn.simpleicons.org/typescript/3178C6', alt: 'TypeScript' },
-                                        { src: 'https://cdn.simpleicons.org/nextdotjs/000000', alt: 'Next.js' },
-                                        { src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4', alt: 'Tailwind' },
-                                        { src: 'https://cdn.simpleicons.org/docker/2496ED', alt: 'Docker' },
-                                        { src: 'https://cdn.simpleicons.org/postgresql/4169E1', alt: 'PostgreSQL' },
-                                        { src: 'https://cdn.simpleicons.org/javascript/F7DF1E', alt: 'JavaScript' },
-                                        { src: 'https://cdn.simpleicons.org/prisma/2D3748', alt: 'Prisma' },
-                                        { src: 'https://cdn.simpleicons.org/supabase/3FCF8E', alt: 'Supabase' },
+                                        { src: '/logos/react.svg', alt: 'React' },
+                                        { src: '/logos/nodejs.svg', alt: 'Node.js' },
+                                        { src: '/logos/flask.svg', alt: 'Flask' },
+                                        { src: '/logos/typescript.svg', alt: 'TypeScript' },
+                                        { src: '/logos/nextjs.svg', alt: 'Next.js' },
+                                        { src: '/logos/tailwind.svg', alt: 'Tailwind' },
+                                        { src: '/logos/docker.svg', alt: 'Docker' },
+                                        { src: '/logos/postgres.svg', alt: 'PostgreSQL' },
+                                        { src: '/logos/javascript.svg', alt: 'JavaScript' },
+                                        { src: '/logos/prisma.svg', alt: 'Prisma' },
+                                        { src: '/logos/supabase.svg', alt: 'Supabase' },
                                     ]}
                                     speed="slow"
                                 />

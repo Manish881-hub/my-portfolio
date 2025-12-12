@@ -39,7 +39,6 @@ const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 
                             alt={item.alt}
                             className="h-12 w-auto hover:scale-105 transition-transform duration-300"
                         />
-                        <span className="text-black dark:text-white font-bold px-2">{item.alt}</span> {/* DEBUG: Visibility Check */}
                     </div>
                 ))}
             </div>
