@@ -2,12 +2,11 @@
 // Rebuild trigger
 import React, { useState, useEffect } from 'react';
 import { BadgeCheck, Globe, Code, Mail, Share2, Copy, Check } from 'lucide-react';
-import { useReducedMotion, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PROFILE, BIO_LINKS } from '../../data/portfolioData';
 
 export default function LinksPage() {
     const [copied, setCopied] = useState(false);
-    const shouldReduceMotion = useReducedMotion();
 
     const handleShare = async () => {
         const url = window.location.href;
@@ -93,8 +92,8 @@ export default function LinksPage() {
                                 {/* Outer border (creates the double-outline look) */}
                                 <motion.div
                                     className="rounded-[20px] p-[2px] bg-transparent border border-black/5"
-                                    whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
-                                    whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                                 >
                                     {/* Inner button surface */}
