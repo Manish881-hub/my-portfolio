@@ -30,6 +30,7 @@ import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfo
 import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
 import { SplitText } from '../components/split-text';
+import Dock from '../components/Dock';
 
 
 
@@ -107,7 +108,8 @@ export default function App() {
             />
 
             {/* Mobile Nav: Bottom Center */}
-            <PillNav
+            {/* Mobile Nav: Bottom Center (Dock) */}
+            <Dock
                 activeTab={activeTab}
                 onTabChange={setActiveTab}
                 items={[
@@ -118,7 +120,7 @@ export default function App() {
                     { id: 'about', label: 'About', icon: Users },
                     { id: 'cv', label: 'CV', icon: FileText },
                 ]}
-                className="md:hidden fixed absolute top-4 left-1/2 -translate-x-1/2"
+                className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2"
             />
 
             {/* Main Content Area */}
