@@ -14,8 +14,7 @@ import {
     Terminal,
     Cpu,
     Globe,
-    Moon,
-    Sun,
+
     Award,
     Users,
     Layout,
@@ -41,7 +40,7 @@ const Badge = ({ children, className }: { children: React.ReactNode, className?:
 
 const SectionTitle = ({ title, subtitle }: { title: string, subtitle?: string }) => (
     <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 relative inline-block">
+        <h2 className="text-3xl font-bold text-primary mb-2 relative inline-block">
             {title}
             <span className="absolute -bottom-1 left-0 w-1/3 h-1 bg-blue-500 rounded-full"></span>
         </h2>
@@ -50,7 +49,7 @@ const SectionTitle = ({ title, subtitle }: { title: string, subtitle?: string })
 );
 
 const Card = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-    <div className={`bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 ${className}`}>
+    <div className={`bg-surface rounded-xl border border-card p-6 shadow-sm hover:shadow-md transition-shadow duration-300 ${className}`}>
         {children}
     </div>
 );
@@ -58,17 +57,8 @@ const Card = ({ children, className = "" }: { children: React.ReactNode, classNa
 export default function App() {
     const [activeTab, setActiveTab] = useState('home');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
 
-    useEffect(() => {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setDarkMode(true);
-        }
-    }, []);
 
-    const toggleTheme = () => {
-        setDarkMode(!darkMode);
-    };
 
     const NavLink = ({ tab, label, icon: Icon }: { tab: string, label: string, icon: any }) => (
         <button
@@ -89,18 +79,12 @@ export default function App() {
     );
 
     return (
-        <div className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+        <div className={`min-h-screen font-sans transition-colors duration-300 bg-gray-50`}>
 
             {/* Floating Pill Navigation */}
-            <header className="fixed top-4 right-4 z-50">
-                <button
-                    onClick={toggleTheme}
-                    className="p-3 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors shadow-lg"
-                    aria-label="Toggle Dark Mode"
-                >
-                    {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
-            </header>
+            {/* Dark mode toggle removed */}
+
+            {/* Desktop Nav: Top Right */}
 
             {/* Desktop Nav: Top Right */}
             <PillNav
@@ -149,7 +133,7 @@ export default function App() {
                                     Open to work
                                 </div>
 
-                                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white tracking-tight">
+                                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-primary tracking-tight">
                                     Hi, I'm <SplitText className="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 dark:from-indigo-400 dark:via-purple-500 dark:to-pink-400 inline-block">{PROFILE.name.split(' ')[0]}</SplitText>
                                 </h1>
 
@@ -241,7 +225,7 @@ export default function App() {
                 {activeTab === 'about' && (
                     <div className="max-w-3xl mx-auto space-y-12 animate-in fade-in zoom-in-95 duration-300">
                         <div className="text-center md:text-left">
-                            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">About Me</h1>
+                            <h1 className="text-4xl font-bold text-primary mb-6">About Me</h1>
                             <div className="prose dark:prose-invert max-w-none">
                                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                                     Hello! I'm <strong>{PROFILE.name}</strong>, currently pursuing a <strong>Bachelor of Technology in Computer Science</strong> at Trident Academy of Technology, Bhubaneswar. My academic journey started with a diploma in Information Technology, giving me a strong foundation in the basics before diving deep into engineering.
@@ -257,7 +241,7 @@ export default function App() {
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
                                     <Cpu size={20} className="text-blue-500" /> Tech Stack
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
@@ -269,7 +253,7 @@ export default function App() {
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
                                     <Award size={20} className="text-yellow-500" /> Certifications
                                 </h3>
                                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
@@ -284,7 +268,7 @@ export default function App() {
                         </div>
 
                         <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Languages</h3>
+                            <h3 className="text-lg font-bold text-primary mb-2">Languages</h3>
                             <div className="flex gap-6 text-gray-600 dark:text-gray-400">
                                 <div>English <span className="text-xs opacity-75 block">Full Professional</span></div>
                                 <div>Hindi <span className="text-xs opacity-75 block">Full Professional</span></div>
@@ -315,7 +299,7 @@ export default function App() {
                             className=""
                         >
                             {PROJECTS.map((project, idx) => (
-                                <ScrollStackItem key={idx} itemClassName="bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 p-8 shadow-sm">
+                                <ScrollStackItem key={idx} itemClassName="bg-surface rounded-3xl border border-card p-8 shadow-sm">
                                     <div className="flex flex-col h-full">
                                         <div className="flex justify-between items-start mb-6">
                                             <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
@@ -326,7 +310,7 @@ export default function App() {
                                             </a>
                                         </div>
 
-                                        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                                        <h3 className="text-3xl font-bold text-primary mb-3">
                                             {project.title}
                                         </h3>
 
@@ -358,7 +342,7 @@ export default function App() {
 
                         <div className="space-y-6">
                             {BLOGS.map((post, idx) => (
-                                <article key={idx} className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors group cursor-pointer shadow-sm">
+                                <article key={idx} className="bg-surface p-6 rounded-xl border border-card hover:border-blue-200 dark:hover:border-blue-800 transition-colors group cursor-pointer shadow-sm">
                                     <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
                                         <span className="flex items-center gap-1"><BookOpen size={14} /> {post.platform}</span>
                                         <span>•</span>
@@ -366,7 +350,7 @@ export default function App() {
                                         <span>•</span>
                                         <span>{post.readTime}</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors">
                                         {post.title}
                                     </h3>
                                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">

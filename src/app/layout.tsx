@@ -26,21 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(function () {
-            try {
-              const saved = localStorage.getItem('theme');
-              if (saved === 'dark') {
-                document.documentElement.classList.add('dark');
-              } else if (saved === 'light') {
-                document.documentElement.classList.remove('dark');
-              } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
-              }
-            } catch (e) {}
-          })();`}
-        </Script>
-        <meta name="color-scheme" content="dark light" />
+
         <meta name="theme-color" content="#071026" />
       </head>
       <body
