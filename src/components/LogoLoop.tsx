@@ -1,3 +1,4 @@
+// LogoLoop.tsx
 import React from 'react';
 import './LogoLoop.css';
 
@@ -13,6 +14,9 @@ interface LogoLoopProps {
 }
 
 const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 'normal' }) => {
+    // Debug: Check if items are passed
+    console.log('LogoLoop items:', items);
+
     const duplicatedItems = [...items, ...items, ...items];
 
     const getSpeed = () => {
@@ -25,6 +29,9 @@ const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 
 
     return (
         <div className="logo-loop-container w-full py-8">
+            {/* Debug element - REMOVE AFTER TESTING */}
+
+
             <div
                 className="logo-loop-track"
                 style={{
@@ -34,11 +41,27 @@ const LogoLoop: React.FC<LogoLoopProps> = ({ items, direction = 'left', speed = 
             >
                 {duplicatedItems.map((item, idx) => (
                     <div key={`${item.alt}-${idx}`} className="logo-item px-4">
-                        <img
-                            src={item.src}
-                            alt={item.alt}
-                            className="h-12 w-auto hover:scale-105 transition-transform duration-300"
-                        />
+                        {item.src ? (
+                            <img
+                                src={item.src}
+                                alt={item.alt}
+                                className="h-12 w-auto hover:scale-105 transition-transform duration-300"
+                                onError={(e) => {
+                                    console.error(`Failed to load image: ${item.src}`);
+                                    // Fallback to text
+                                    e.currentTarget.style.display = 'none';
+                                    const parent = e.currentTarget.parentElement;
+                                    if (parent) {
+                                        const fallback = document.createElement('div');
+                                        fallback.className = 'logo-text-fallback';
+                                        fallback.textContent = item.alt;
+                                        parent.appendChild(fallback);
+                                    }
+                                }}
+                            />
+                        ) : (
+                            <div className="logo-text-fallback">{item.alt}</div>
+                        )}
                     </div>
                 ))}
             </div>
