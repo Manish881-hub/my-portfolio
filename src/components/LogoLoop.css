@@ -1,0 +1,39 @@
+.logo-loop-container {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.logo-loop-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.logo-loop-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-muted-foreground);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.logo-item:hover {
+    color: var(--color-primary);
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 1.5rem));
+    }
+}

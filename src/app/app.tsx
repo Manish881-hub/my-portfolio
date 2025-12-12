@@ -24,6 +24,7 @@ import {
     CalendarClock
 } from 'lucide-react';
 import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
+import LogoLoop from '../components/LogoLoop';
 import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfolioData';
 import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
@@ -151,6 +152,10 @@ export default function App() {
                                             <span className="mr-1">{badge.icon}</span> {badge.title}
                                         </Badge>
                                     ))}
+                                </div>
+
+                                <div className="pt-8 w-full max-w-xl">
+                                    <LogoLoop items={['React', 'Node.js', 'Flask', 'Python', 'TypeScript', 'Next.js', 'Tailwind', 'AWS', 'Docker', 'PostgreSQL', 'Git']} speed="slow" />
                                 </div>
 
 
