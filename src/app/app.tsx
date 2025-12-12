@@ -31,6 +31,7 @@ import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
 import { SplitText } from '../components/split-text';
 import Dock from '../components/Dock';
+import SpotlightCard from '../components/SpotlightCard';
 
 
 
@@ -331,7 +332,7 @@ export default function App() {
 
                             <div className="space-y-6">
                                 {BLOGS.map((post, idx) => (
-                                    <article key={idx} className="bg-surface p-6 rounded-xl border border-card hover:border-blue-200 dark:hover:border-blue-800 transition-colors group cursor-pointer shadow-sm">
+                                    <SpotlightCard key={idx} className="p-6 transition-colors shadow-sm cursor-pointer" spotlightColor="rgba(59, 130, 246, 0.15)">
                                         <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
                                             <span className="flex items-center gap-1"><BookOpen size={14} /> {post.platform}</span>
                                             <span>•</span>
@@ -348,7 +349,7 @@ export default function App() {
                                         <div className="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
                                             View Post <ArrowRight size={16} className="ml-1" />
                                         </div>
-                                    </article>
+                                    </SpotlightCard>
                                 ))}
                             </div>
                         </div>
