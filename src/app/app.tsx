@@ -290,33 +290,33 @@ export default function App() {
                                 {PROJECTS.map((project, idx) => (
                                     <ScrollStackItem key={idx} itemClassName="!p-0 !bg-transparent !border-none !shadow-none !h-auto !w-full">
                                         <motion.div
-                                            className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 shadow-xl overflow-hidden flex flex-col h-full z-10"
+                                            className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-6 md:p-8 shadow-xl overflow-hidden flex flex-col z-10"
                                             initial={{ opacity: 0, y: 30 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, margin: "-50px" }}
                                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                                         >
-                                            <div className="flex justify-between items-start mb-6">
-                                                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
-                                                    <Code size={28} />
+                                            <div className="flex justify-between items-start mb-4 md:mb-6">
+                                                <div className="p-2 md:p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
+                                                    <Code size={24} className="md:w-7 md:h-7" />
                                                 </div>
                                                 <a href={project.link} className="p-2 text-gray-400 hover:text-blue-500 transition-colors" target="_blank" rel="noopener noreferrer">
-                                                    <ExternalLink size={24} />
+                                                    <ExternalLink size={20} className="md:w-6 md:h-6" />
                                                 </a>
                                             </div>
 
-                                            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3">
                                                 {project.title}
                                             </h3>
 
-                                            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 flex-grow leading-relaxed">
+                                            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8 flex-grow leading-relaxed">
                                                 {project.description}
                                             </p>
 
-                                            <div className="pt-6 border-t border-gray-100 dark:border-gray-700 mt-auto">
+                                            <div className="pt-4 md:pt-6 border-t border-gray-100 dark:border-gray-700 mt-auto">
                                                 <div className="flex flex-wrap gap-2">
                                                     {project.tags.map(tag => (
-                                                        <span key={tag} className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium">
+                                                        <span key={tag} className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs md:text-sm font-medium">
                                                             #{tag}
                                                         </span>
                                                     ))}
