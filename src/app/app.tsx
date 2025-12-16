@@ -288,9 +288,9 @@ export default function App() {
                                 className=""
                             >
                                 {PROJECTS.map((project, idx) => (
-                                    <ScrollStackItem key={idx} itemClassName="bg-surface rounded-3xl border border-card p-8 shadow-sm">
+                                    <ScrollStackItem key={idx} itemClassName="!p-0 !bg-transparent !border-none !shadow-none !h-auto !w-full">
                                         <motion.div
-                                            className="flex flex-col h-full"
+                                            className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 shadow-xl overflow-hidden flex flex-col h-full z-10"
                                             initial={{ opacity: 0, y: 30 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, margin: "-50px" }}
@@ -305,16 +305,16 @@ export default function App() {
                                                 </a>
                                             </div>
 
-                                            <h3 className="text-3xl font-bold text-primary mb-3">
+                                            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                                                 {project.title}
                                             </h3>
 
-                                            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 flex-grow leading-relaxed">
+                                            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 flex-grow leading-relaxed">
                                                 {project.description}
                                             </p>
 
                                             <div className="pt-6 border-t border-gray-100 dark:border-gray-700 mt-auto">
-                                                <div className="flex flex-wrap gap-2 mb-6">
+                                                <div className="flex flex-wrap gap-2">
                                                     {project.tags.map(tag => (
                                                         <span key={tag} className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium">
                                                             #{tag}
