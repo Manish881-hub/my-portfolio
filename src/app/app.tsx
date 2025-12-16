@@ -23,6 +23,7 @@ import {
     FileText,
     CalendarClock
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
 import LogoLoop from '@/components/LogoLoop';
 
@@ -288,7 +289,13 @@ export default function App() {
                             >
                                 {PROJECTS.map((project, idx) => (
                                     <ScrollStackItem key={idx} itemClassName="bg-surface rounded-3xl border border-card p-8 shadow-sm">
-                                        <div className="flex flex-col h-full">
+                                        <motion.div
+                                            className="flex flex-col h-full"
+                                            initial={{ opacity: 0, y: 30 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                                        >
                                             <div className="flex justify-between items-start mb-6">
                                                 <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
                                                     <Code size={28} />
@@ -315,7 +322,7 @@ export default function App() {
                                                     ))}
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </ScrollStackItem>
                                 ))}
                             </ScrollStack>
