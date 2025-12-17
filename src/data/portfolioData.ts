@@ -2,8 +2,8 @@ import { Github, Twitter, Linkedin, Globe, Code, Mail } from 'lucide-react';
 
 export const PROFILE = {
     name: "Manish Bhakti Sagar",
-    role: "Cloud | Node.js | React",
-    tagline: "Computer Science student passionate about full-stack development, cloud architecture, and enhancing user experiences.",
+    role: "Software & DevOps Engineer | ☁️ AWS (EC2, S3, Route53) | Docker | CI/CD Pipelines | React & Firebase | Cloud-Native & AI-Driven Apps",
+    tagline: "I’m a full-stack engineer turned DevOps enthusiast who’s shipped 2+ web apps—ranging from MVP hackathon builds to production tools used by hundreds. My stack includes Next.js, Node, Express, and Firebase on the backend, with Docker and AWS powering deployments. I’m always learning new tools, exploring libraries, and jumping into hackathons or side projects with people from all sorts of backgrounds. Lately, I’ve been focused on CI/CD, observability, and building resilient infrastructure that scales. Always building, always deploying. Open to collaborations and DevOps-focused roles.",
     location: "Bhubaneswar, Odisha, India",
     email: "bhaktisagar.manish@gmail.com",
     socials: {
