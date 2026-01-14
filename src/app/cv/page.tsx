@@ -34,12 +34,21 @@ export default function CVPage() {
                 >
                     <ArrowLeft size={20} /> Back to Home
                 </a>
-                <button
-                    onClick={() => window.print()}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-sm"
-                >
-                    <Download size={18} /> Download CV
-                </button>
+                <div className="flex gap-3">
+                    <button
+                        onClick={() => window.print()}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    >
+                        <Download size={18} /> Print CV
+                    </button>
+                    <a
+                        href="/documents/resume.pdf"
+                        download="Manish_Bhakti_Sagar_Resume.pdf"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+                    >
+                        <Download size={18} /> Download PDF Resume
+                    </a>
+                </div>
             </div>
 
             {/* CV Paper */}
