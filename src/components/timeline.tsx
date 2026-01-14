@@ -17,12 +17,12 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
     {
         id: 1,
-        title: "Full-stack Developer",
+        title: "Software Engineer Intern",
         role: "Tekpages IT Solutions Private Limited",
-        date: "Jul 2025 - Oct 2025",
-        description: "Designed and deployed 3+ responsive web pages using HTML, CSS, and JavaScript, improving user engagement by 40%. Developed a Temperature Converter Web App integrating AWS services. Collaborated in real-world case studies involving hybrid cloud setups using AWS & Azure.",
+        date: "May 2025 - Aug 2025",
+        description: "Supported cloud-based application deployment on AWS, working with EC2, S3, and Linux-based environments under senior engineer guidance. Assisted in server configuration, application hosting, and runtime monitoring, gaining exposure to real-world production environments. Participated in testing, debugging, and issue analysis, improving application stability during deployment and post-release phases. Documented application architecture, deployment steps, and troubleshooting procedures, contributing to operational runbooks and knowledge transfer. Collaborated with team members to understand CI/CD pipelines, DevOps workflows, and release management processes.",
         type: "work",
-        tags: ["HTML", "CSS", "JavaScript", "AWS", "Azure", "JSP"]
+        tags: ["AWS", "Linux", "CI/CD", "DevOps", "EC2", "S3"]
     },
     {
         id: 2,
