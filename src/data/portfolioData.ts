@@ -98,6 +98,14 @@ export const BLOGS = [
 
 export const TIMELINE_DATA = [
     {
+        org: "TekPages IT Solutions",
+        role: "Full Stack Intern",
+        date: "May 2025 - Aug 2025",
+        location: "Bangalore, India",
+        type: "Work",
+        description: "Supported cloud-based application deployment on AWS, working with EC2, S3, and Linux-based environments. Assisted in server configuration, application hosting, and runtime monitoring. Participated in testing, debugging, and issue analysis, improving application stability. Documented application architecture, deployment steps, and troubleshooting procedures. Collaborated with team members to understand CI/CD pipelines, DevOps workflows, and release management processes."
+    },
+    {
         org: "EmptyCups / Internshala",
         role: "Internship Trainee",
         date: "May 2025 - Jul 2025",
