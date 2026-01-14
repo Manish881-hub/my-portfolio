@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+// Updated timeline data
 import { Briefcase, GraduationCap, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
