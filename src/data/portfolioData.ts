@@ -2,8 +2,8 @@ import { Github, Twitter, Linkedin, Globe, Code, Mail } from 'lucide-react';
 
 export const PROFILE = {
     name: "Manish Bhakti Sagar",
-    role: "Software & DevOps Engineer | Cloud-Native & AI-Driven Apps",
-    tagline: "I’m a full-stack engineer turned DevOps enthusiast who’s shipped 2+ web apps. I’m always learning new tools, exploring libraries, and jumping into hackathons or side projects with people from all sorts of backgrounds. Lately, I’ve been focused on CI/CD, observability, and building resilient infrastructure that scales. Always building, always deploying. Open to collaborations and DevOps-focused roles.",
+    role: "Founder @ Adtext | Full-Stack Developer | AI Engineer",
+    tagline: "I build AI-powered products, developer tools, and scalable web applications. Currently building Adtext, a monetization platform for conversational AI applications that enables contextual advertising inside chat experiences. My work spans React, Next.js, FastAPI, PostgreSQL, cloud infrastructure, and LLM-powered systems. I enjoy turning ideas into production-ready products, designing clean user experiences, and building reliable backend systems that scale. Always learning, always shipping, and always exploring the intersection of AI and software engineering. Open to software engineering, AI engineering, and startup opportunities.",
     location: "Bhubaneswar, Odisha, India",
     email: "bhaktisagar.manish@gmail.com",
     socials: {
@@ -16,58 +16,74 @@ export const PROFILE = {
 };
 
 export const BADGES = [
-    { title: "Software Developer", icon: "⚛️", color: "bg-blue-100 text-blue-800" },
-    { title: "Cloud Enthusiast", icon: "☁️", color: "bg-sky-100 text-sky-800" },
-    { title: "Python/Flask", icon: "🐍", color: "bg-yellow-100 text-yellow-800" },
-    { title: "Problem Solver", icon: "🧩", color: "bg-purple-100 text-purple-800" }
+    { title: "Founder", icon: "🚀", color: "bg-indigo-100 text-indigo-800" },
+    { title: "AI Engineer", icon: "🤖", color: "bg-purple-100 text-purple-800" },
+    { title: "Full-Stack Developer", icon: "⚛️", color: "bg-blue-100 text-blue-800" },
+    { title: "Cloud & Backend Systems", icon: "☁️", color: "bg-sky-100 text-sky-800" }
 ];
 
 export const PROJECTS = [
-
+    {
+        title: "Adtext",
+        problem: "AI chat apps struggle to monetize without harming user experience.",
+        solution: "Built contextual ad infrastructure that detects conversation intent and surfaces relevant offers natively within chat interfaces.",
+        role: "Founder, Product Builder, Full-Stack Engineer",
+        stack: ["Next.js", "FastAPI", "PostgreSQL", "OpenAI"],
+        status: "Building",
+        link: "#"
+    },
     {
         title: "Dimewise AI Finance APP",
-        description: "A production-grade finance application with secure authentication. Features scalable full-stack architecture, schema management, and optimized frontend performance.",
-        tags: ["React", "AI Integration", "Auth", "SaaS"],
-        stars: "Featured",
+        problem: "Managing personal finances is fragmented across multiple tools and platforms.",
+        solution: "AI-powered finance dashboard with secure authentication, real-time budgeting, and intelligent insights.",
+        role: "Full-Stack Developer",
+        stack: ["React", "AI Integration", "Auth", "SaaS"],
+        status: "Featured",
         link: "https://dimewise.vercel.app/"
     },
     {
         title: "Empty Cups",
-        description: "A minimal full-stack project demonstrating backend–frontend integration. Serves listing data from a JSON file via Flask REST API with a dynamic JS frontend. Containerized with Docker.",
-        tags: ["Flask", "REST API", "Docker", "JavaScript"],
-        stars: "Live",
+        problem: "Small businesses need a simple way to display listings without a complex CMS.",
+        solution: "Minimal full-stack app serving listing data via Flask REST API with a dynamic JS frontend, containerized with Docker for easy deployment.",
+        role: "Full-Stack Developer",
+        stack: ["Flask", "REST API", "Docker", "JavaScript"],
+        status: "Live",
         link: "https://github.com/Manish881-hub/EmptyCups"
     },
     {
         title: "Real Estate Tenant Platform",
-        description:
-            "A real estate tenant management system featuring tenant onboarding, property management, and secure data workflows. Built with scalable frontend architecture and modern UI components.",
-        tags: ["React", "Tailwind", "Property Management"],
-        stars: "New",
+        problem: "Property managers lack streamlined tools for tenant onboarding and data management.",
+        solution: "Full-featured tenant management system with property management workflows and secure data handling.",
+        role: "Frontend Developer",
+        stack: ["React", "Tailwind", "Property Management"],
+        status: "New",
         link: "https://github.com/Manish881-hub/Real-Estate-Tenant-1"
     },
     {
-        title: "CertifyME (Certification Management App)",
-        description:
-            "A full-stack certification management system allowing users to generate, verify, and manage digital certificates. Built with Flask backend and responsive client UI.",
-        tags: ["Flask", "Python", "Digital Certificates"],
-        stars: "Featured",
+        title: "CertifyME",
+        problem: "Organizations need a fast way to generate and verify digital certificates.",
+        solution: "Full-stack certification management system for generating, verifying, and managing digital certificates with Flask backend.",
+        role: "Full-Stack Developer",
+        stack: ["Flask", "Python", "Digital Certificates"],
+        status: "Featured",
         link: "https://github.com/Manish881-hub/CertifyME"
     },
     {
         title: "Todo App with Authentication",
-        description:
-            "A simple yet powerful Todo application with secure authentication, allowing users to manage tasks with protected routes and persistent storage.",
-        tags: ["React", "Auth", "JavaScript"],
-        stars: "New",
+        problem: "Simple task management apps lack secure user-specific data isolation.",
+        solution: "Todo application with secure authentication, protected routes, and persistent per-user storage.",
+        role: "Full-Stack Developer",
+        stack: ["React", "Auth", "JavaScript"],
+        status: "New",
         link: "https://github.com/Manish881-hub/Todo-auth"
     },
     {
         title: "Firebase Login Authentication",
-        description:
-            "A secure authentication system built with Firebase, enabling email/password login, user onboarding, and protected routes. Demonstrates auth flows and reusable frontend components.",
-        tags: ["Firebase", "Auth", "React"],
-        stars: "Live",
+        problem: "Implementing secure auth flows from scratch is time-consuming and error-prone.",
+        solution: "Reusable authentication system with email/password login, user onboarding, and protected routes using Firebase.",
+        role: "Full-Stack Developer",
+        stack: ["Firebase", "Auth", "React"],
+        status: "Live",
         link: "https://github.com/Manish881-hub/Login-Authentication-Firebase"
     }
 ];
@@ -98,20 +114,20 @@ export const BLOGS = [
 
 export const TIMELINE_DATA = [
     {
+        org: "Adtext",
+        role: "Founder & Product Builder",
+        date: "Jan 2026 - Present",
+        location: "Remote",
+        type: "Work",
+        description: "Building Adtext, an AI monetization platform for conversational applications. Designed and developed a full-stack AI advertising platform enabling contextual ad delivery inside AI chat experiences. Built responsive React.js and Next.js frontends, FastAPI backend services, analytics systems, authentication workflows, scalable database architecture, and AI-powered recommendation pipelines."
+    },
+    {
         org: "TekPages IT Solutions",
         role: "Full Stack Intern",
         date: "May 2025 - Aug 2025",
         location: "Bangalore, India",
         type: "Work",
         description: "Supported cloud-based application deployment on AWS, working with EC2, S3, and Linux-based environments. Assisted in server configuration, application hosting, and runtime monitoring. Participated in testing, debugging, and issue analysis, improving application stability. Documented application architecture, deployment steps, and troubleshooting procedures. Collaborated with team members to understand CI/CD pipelines, DevOps workflows, and release management processes."
-    },
-    {
-        org: "EmptyCups / Internshala",
-        role: "Internship Trainee",
-        date: "May 2025 - Jul 2025",
-        location: "Remote",
-        type: "Work",
-        description: "Built portfolio using Flask REST API and containerized with Docker."
     },
     {
         org: "Oasis Infobyte",
@@ -124,7 +140,7 @@ export const TIMELINE_DATA = [
     {
         org: "Trident Academy of Technology",
         role: "B.Tech in Computer Science",
-        date: "2022 - 2025",
+        date: "Dec 2022 - May 2025",
         location: "Bhubaneswar",
         type: "Education",
         description: "CGPA: 7.5. Led team to 3rd place in inter-college esports LAN competition."
@@ -132,10 +148,10 @@ export const TIMELINE_DATA = [
     {
         org: "Government Polytechnic",
         role: "Diploma in Information Technology",
-        date: "2018 - 2021",
+        date: "Oct 2018 - Jun 2021",
         location: "Bhubaneswar",
         type: "Education",
-        description: "Secured 82%. Represented college as Forward Commander in cultural events."
+        description: "Secured 82%. Represented college as Forward Commander during cultural events."
     }
 ];
 
@@ -155,6 +171,6 @@ export const BIO_LINKS = [
     { label: "LinkedIn Profile", url: PROFILE.socials.linkedin, icon: Linkedin },
     { label: "Twitter (X)", url: PROFILE.socials.twitter, icon: Twitter },
     { label: "HackerRank", url: PROFILE.socials.hackerrank, icon: Code },
-    { label: "Reddit", url: PROFILE.socials.reddit, icon: Globe }, // Using Globe as placeholder for Reddit if needed, or just text
+    { label: "Reddit", url: PROFILE.socials.reddit, icon: Globe },
     { label: "Contact Me", url: `mailto:${PROFILE.email}`, icon: Mail },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-// Updated timeline data
+
 import { Briefcase, GraduationCap, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -18,6 +18,24 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
     {
         id: 1,
+        title: "Founder & Product Builder",
+        role: "Adtext",
+        date: "Jan 2026 - Present",
+        description: "Building Adtext, an AI monetization platform for conversational applications. Designed and developed a full-stack AI advertising platform enabling contextual ad delivery inside AI chat experiences. Built responsive React.js and Next.js frontends, FastAPI backend services, analytics systems, authentication workflows, scalable database architecture, and AI-powered recommendation pipelines.",
+        type: "work",
+        tags: ["AI", "FastAPI", "Next.js", "React", "PostgreSQL", "LLMs", "Founder"]
+    },
+    {
+        id: 2,
+        title: "AI Engineer",
+        role: "Coldrecs (Contract)",
+        date: "Sep 2025 - Dec 2025",
+        description: "Contributed to building private and secure LLM infrastructure for enterprise clients in legal, healthcare, and government sectors.",
+        type: "work",
+        tags: ["LLM/AI Integration", "Systems Design", "Infrastructure"]
+    },
+    {
+        id: 3,
         title: "Software Engineer Intern",
         role: "Tekpages IT Solutions Private Limited",
         date: "May 2025 - Aug 2025",
@@ -26,7 +44,25 @@ const timelineData: TimelineItem[] = [
         tags: ["AWS", "Linux", "CI/CD", "DevOps", "EC2", "S3"]
     },
     {
-        id: 2,
+        id: 4,
+        title: "DimeWise Finance Management App",
+        role: "Personal Project",
+        date: "Mar 2025 - Apr 2025",
+        description: "Built a full-stack finance management platform using Next.js, PostgreSQL, Prisma, and authentication workflows. Implemented secure authentication, protected routes, transaction management, analytics dashboards, and responsive user interfaces.",
+        type: "achievement",
+        tags: ["Next.js", "PostgreSQL", "Prisma", "Authentication", "Full Stack"]
+    },
+    {
+        id: 5,
+        title: "Bachelor of Technology - Computer Science",
+        role: "Trident Academy of Technology (TAT), Bhubaneswar",
+        date: "Dec 2022 - May 2025",
+        description: "Grade: 7.5 CGPA. Led a 4-member team to secure 3rd place in an inter-college esports LAN competition, showcasing teamwork and strategy.",
+        type: "education",
+        tags: ["BTech", "Computer Science", "Team Leadership"]
+    },
+    {
+        id: 6,
         title: "Web Development Intern",
         role: "Oasis Infobyte",
         date: "Dec 2023 - Jan 2024",
@@ -35,28 +71,19 @@ const timelineData: TimelineItem[] = [
         tags: ["React.js", "HTML5", "Agile", "Cross-browser Testing"]
     },
     {
-        id: 3,
-        title: "Bachelor of Technology - Computer Science",
-        role: "Trident Academy of Technology (TAT), Bhubaneswar",
-        date: "Dec 2022 - Apr 2025",
-        description: "Grade: 7.5 CGPA. Led a 4-member team to secure 3rd place in an inter-college esports LAN competition, showcasing teamwork and strategy.",
-        type: "education",
-        tags: ["BTech", "Computer Science", "Team Leadership"]
-    },
-    {
-        id: 4,
-        title: "Diploma of Education, Information Technology",
+        id: 7,
+        title: "Diploma in Information Technology",
         role: "Government Polytechnic, Bhubaneswar",
-        date: "Mar 2018 - Jan 2021",
+        date: "Oct 2018 - Jun 2021",
         description: "Grade: 82%. Represented college as Forward Commander during cultural events, coordinating teams and ensuring smooth event execution.",
         type: "education",
         tags: ["Diploma", "Information Technology", "Event Management"]
     },
     {
-        id: 5,
-        title: "Primary Education, Science",
-        role: "DPS VIDYAPEETH",
-        date: "Mar 2007 - Mar 2018",
+        id: 8,
+        title: "Primary Education",
+        role: "DPS Vidyapeeth",
+        date: "2007 - 2018",
         description: "Grade: 6.0/10 CGPA. Engaged in diverse extracurricular activities including Football, Basketball, Debate, and Speech.",
         type: "education",
         tags: ["Science", "Debate", "Sports"]

@@ -1,6 +1,7 @@
 
 "use client";
 import React, { useState, useEffect } from 'react';
+
 import {
     Github,
     Twitter,
@@ -32,6 +33,7 @@ import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
 import { SplitText } from '../components/split-text';
 import Dock from '../components/Dock';
+import BorderGlow from '@/components/BorderGlow';
 import SpotlightCard from '../components/SpotlightCard';
 
 
@@ -164,20 +166,40 @@ export default function App() {
                                             </Badge>
                                         ))}
                                     </div>
+
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-6">
+
+
+                                        <a
+                                            href={`mailto:${PROFILE.email}`}
+                                            className="px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                                        >
+                                            Contact Me
+                                        </a>
+                                    </div>
                                 </div>
 
                                 {/* Profile Image / Abstract Visual */}
                                 <div className="flex-1 flex justify-center self-center md:self-start">
-                                    <div className="relative w-64 h-64 md:w-80 md:h-80">
-                                        <div className="absolute inset-0 bg-blue-200 dark:bg-blue-900/40 rounded-full blur-2xl opacity-50 animate-pulse"></div>
-                                        <div className="relative w-full h-full rounded-full border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden bg-gray-200 z-10">
+                                    <BorderGlow
+                                        borderRadius={999}
+                                        backgroundColor="transparent"
+                                        colors={['#6366f1', '#a855f7', '#ec4899']}
+                                        glowColor="250 80 80"
+                                        edgeSensitivity={10}
+                                        glowIntensity={1.5}
+                                        coneSpread={30}
+                                        animated={true}
+                                        className="w-64 h-64 md:w-80 md:h-80 !border-none !bg-transparent"
+                                    >
+                                        <div className="w-full h-full rounded-full border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden bg-gray-200">
                                             <img
                                                 src="/profile.png"
                                                 alt="Manish Bhaktisagar"
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
-                                    </div>
+                                    </BorderGlow>
                                 </div>
                             </div>
 
@@ -213,15 +235,15 @@ export default function App() {
                         <div className="max-w-3xl mx-auto space-y-12 animate-in fade-in zoom-in-95 duration-300">
                             <div className="text-center md:text-left">
                                 <h1 className="text-4xl font-bold text-primary mb-6">About Me</h1>
-                                <div className="prose dark:prose-invert max-w-none">
+                                <div className="max-w-none">
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        Hello! I'm <strong>{PROFILE.name}</strong>, currently pursuing a <strong>Bachelor of Technology in Computer Science</strong> at Trident Academy of Technology, Bhubaneswar. My academic journey started with a diploma in Information Technology, giving me a strong foundation in the basics before diving deep into engineering.
+                                        I'm a <strong>full-stack developer and founder</strong> building AI-powered products and scalable infrastructure. I founded <strong>Adtext</strong>, a contextual ad infrastructure for AI chat apps, where I work across the full stack — from Next.js frontends to FastAPI backends and PostgreSQL.
                                     </p>
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        I specialize in <strong>Full Stack Development</strong> with a focus on <strong>React, Node.js, and Flask</strong>. I recently contributed as an Internship Trainee at Internshala, where I built projects involving REST APIs and Docker containerization.
+                                        I specialize in <strong>React, Node.js, Flask, and cloud deployment</strong> with Docker and AWS. I've shipped finance dashboards, certification management systems, and DevOps tooling — always with an eye on clean architecture and CI/CD best practices.
                                     </p>
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        I'm passionate about clean architecture, CI/CD, and enhancing user experiences. When I'm not coding, I enjoy competitive gaming and have led teams to victory in esports competitions.
+                                        I'm looking for <strong>opportunities in software engineering, DevOps, and AI infrastructure</strong> where I can build products that matter, work with strong teams, and keep shipping. Outside of code, I've led esports teams to competition wins and I'm always exploring new tools and hackathons.
                                     </p>
                                 </div>
                             </div>
@@ -270,7 +292,7 @@ export default function App() {
                 {
                     activeTab === 'projects' && (
                         <div className="animate-in fade-in zoom-in-95 duration-300">
-                            <SectionTitle title="Projects" subtitle="Building scalable applications with modern tech stacks." />
+                            <SectionTitle title="Projects" subtitle="Real products I've built — from idea to deployment." />
 
 
 
@@ -297,27 +319,49 @@ export default function App() {
                                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                                         >
                                             <div className="flex justify-between items-start mb-4 md:mb-6">
-                                                <div className="p-2 md:p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
-                                                    <Code size={24} className="md:w-7 md:h-7" />
+                                                <div className="flex items-center gap-3">
+                                                    <div className="p-2 md:p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
+                                                        <Code size={24} className="md:w-7 md:h-7" />
+                                                    </div>
+                                                    <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+                                                        {project.status}
+                                                    </span>
                                                 </div>
                                                 <a href={project.link} className="p-2 text-gray-400 hover:text-blue-500 transition-colors" target="_blank" rel="noopener noreferrer">
                                                     <ExternalLink size={20} className="md:w-6 md:h-6" />
                                                 </a>
                                             </div>
 
-                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3">
+                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                                 {project.title}
                                             </h3>
 
-                                            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8 flex-grow leading-relaxed">
-                                                {project.description}
-                                            </p>
+                                            <div className="space-y-3 flex-grow">
+                                                <div>
+                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Problem</span>
+                                                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                        {project.problem}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Solution</span>
+                                                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                        {project.solution}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Role</span>
+                                                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
+                                                        {project.role}
+                                                    </p>
+                                                </div>
+                                            </div>
 
-                                            <div className="pt-4 md:pt-6 border-t border-gray-100 dark:border-gray-700 mt-auto">
+                                            <div className="pt-4 md:pt-6 border-t border-gray-100 dark:border-gray-700 mt-4">
                                                 <div className="flex flex-wrap gap-2">
-                                                    {project.tags.map(tag => (
-                                                        <span key={tag} className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs md:text-sm font-medium">
-                                                            #{tag}
+                                                    {project.stack.map(item => (
+                                                        <span key={item} className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs md:text-sm font-medium">
+                                                            {item}
                                                         </span>
                                                     ))}
                                                 </div>

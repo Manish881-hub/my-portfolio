@@ -126,11 +126,12 @@ export default function CVPage() {
                                                 </a>
                                             )}
                                         </div>
-                                        <p className="text-gray-600 text-sm mb-2">{project.description}</p>
+                                        <p className="text-gray-600 text-sm mb-1">{project.solution}</p>
+                                        <p className="text-xs text-gray-500 mb-1">{project.role}</p>
                                         <div className="flex flex-wrap gap-1">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded">
-                                                    {tag}
+                                            {project.stack.map((item: string) => (
+                                                <span key={item} className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded">
+                                                    {item}
                                                 </span>
                                             ))}
                                         </div>
