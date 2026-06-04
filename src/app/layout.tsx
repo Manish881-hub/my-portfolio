@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Manish Bhaktisagar | Portfolio",
   description: "Full Stack Developer specializing in React, Node.js, and Flask.",
+  icons: {
+    icon: '/profile.png',
+  },
 };
 
 export default function RootLayout({

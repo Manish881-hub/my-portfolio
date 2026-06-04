@@ -206,7 +206,7 @@ export default function App() {
                             {/* Bottom Part: Logo Loop (Full Width) */}
                             <div className="w-full pt-4">
                                 <LogoLoop
-                                    items={[
+                                    logos={[
                                         { src: '/logos/react.svg', alt: 'React' },
                                         { src: '/logos/nodejs.svg', alt: 'Node.js' },
                                         { src: '/logos/flask.svg', alt: 'Flask' },
@@ -219,7 +219,11 @@ export default function App() {
                                         { src: '/logos/prisma.svg', alt: 'Prisma' },
                                         { src: '/logos/supabase.svg', alt: 'Supabase' },
                                     ]}
-                                    speed="slow"
+                                    speed={30}
+                                    direction="left"
+                                    pauseOnHover
+                                    logoHeight={32}
+                                    gap={40}
                                 />
                             </div>
                         </section>
