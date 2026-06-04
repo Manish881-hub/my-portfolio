@@ -241,13 +241,19 @@ export default function App() {
                                 <h1 className="text-4xl font-bold text-primary mb-6">About Me</h1>
                                 <div className="max-w-none">
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        I'm a <strong>full-stack developer and founder</strong> building AI-powered products and scalable infrastructure. I founded <strong>Adtext</strong>, a contextual ad infrastructure for AI chat apps, where I work across the full stack — from Next.js frontends to FastAPI backends and PostgreSQL.
+                                        Hello! I'm Manish Bhakti Sagar, a <strong>Full-Stack Developer and AI Engineer</strong> focused on building AI-powered applications, developer tools, and scalable backend systems.
                                     </p>
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        I specialize in <strong>React, Node.js, Flask, and cloud deployment</strong> with Docker and AWS. I've shipped finance dashboards, certification management systems, and DevOps tooling — always with an eye on clean architecture and CI/CD best practices.
+                                        I am the founder of <strong>Adtext</strong>, where I'm building monetization infrastructure for conversational AI applications. My work involves React, Next.js, FastAPI, PostgreSQL, cloud platforms, and LLM-powered workflows.
+                                    </p>
+                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                        Over the past few years, I've built full-stack products, worked with cloud deployments, developed REST APIs, designed database architectures, and explored modern AI application development. I enjoy solving product problems, shipping production-ready software, and learning new technologies through real-world projects.
+                                    </p>
+                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                        My recent focus has been on <strong>Generative AI, Model Context Protocol (MCP), Agentic Workflows, Claude Code, LLM Integration</strong>, cloud infrastructure, and scalable application architecture.
                                     </p>
                                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        I'm looking for <strong>opportunities in software engineering, DevOps, and AI infrastructure</strong> where I can build products that matter, work with strong teams, and keep shipping. Outside of code, I've led esports teams to competition wins and I'm always exploring new tools and hackathons.
+                                        I'm actively interested in <strong>Software Engineering, AI Engineering, Product Engineering, and startup opportunities</strong> where I can build impactful products and work closely with users.
                                     </p>
                                 </div>
                             </div>
@@ -258,7 +264,7 @@ export default function App() {
                                         <Cpu size={20} className="text-blue-500" /> Tech Stack
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {['JavaScript', 'React.js', 'Node.js', 'Flask', 'Python', 'AWS', 'Docker', 'SQL', 'C++', 'Java'].map(skill => (
+                                        {['React.js', 'Next.js', 'TypeScript', 'Node.js', 'FastAPI', 'PostgreSQL', 'MongoDB', 'LLM Integration', 'Generative AI', 'Model Context Protocol (MCP)', 'Agentic Workflows', 'Prompt Engineering', 'AWS', 'Docker', 'SQL', 'JavaScript', 'Python'].map(skill => (
                                             <span key={skill} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm">
                                                 {skill}
                                             </span>
