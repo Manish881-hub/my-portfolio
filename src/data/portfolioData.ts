@@ -30,7 +30,7 @@ export const PROJECTS = [
         role: "Founder, Product Builder, Full-Stack Engineer",
         stack: ["Next.js", "FastAPI", "PostgreSQL", "OpenAI"],
         status: "Building",
-        link: "#"
+        link: "https://adtext.org/"
     },
     {
         title: "Dimewise AI Finance APP",

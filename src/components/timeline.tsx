@@ -13,6 +13,7 @@ interface TimelineItem {
     description: string;
     type: 'work' | 'education' | 'achievement';
     tags: string[];
+    link?: string;
 }
 
 const timelineData: TimelineItem[] = [
@@ -21,6 +22,7 @@ const timelineData: TimelineItem[] = [
         title: "Founder & Product Builder",
         role: "Adtext",
         date: "Jan 2026 - Present",
+        link: "https://adtext.org/",
         description: "Building Adtext, an AI monetization platform for conversational applications. Designed and developed a full-stack AI advertising platform enabling contextual ad delivery inside AI chat experiences. Built responsive React.js and Next.js frontends, FastAPI backend services, analytics systems, authentication workflows, scalable database architecture, and AI-powered recommendation pipelines.",
         type: "work",
         tags: ["AI", "FastAPI", "Next.js", "React", "PostgreSQL", "LLMs", "Founder"]
@@ -164,7 +166,13 @@ const Timeline = () => {
                                         </h3>
 
                                         <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-3">
-                                            {item.role}
+                                            {item.link ? (
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                                    {item.role}
+                                                </a>
+                                            ) : (
+                                                item.role
+                                            )}
                                         </p>
 
                                         <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-4">
