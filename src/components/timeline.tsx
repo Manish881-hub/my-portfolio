@@ -14,6 +14,7 @@ interface TimelineItem {
     type: 'work' | 'education' | 'achievement';
     tags: string[];
     link?: string;
+    current?: boolean;
 }
 
 const timelineData: TimelineItem[] = [
@@ -23,25 +24,26 @@ const timelineData: TimelineItem[] = [
         role: "Adtext",
         date: "Jan 2026 - Present",
         link: "https://adtext.org/",
-        description: "Building Adtext, an AI monetization platform for conversational applications. Designed and developed a full-stack AI advertising platform enabling contextual ad delivery inside AI chat experiences. Built responsive React.js and Next.js frontends, FastAPI backend services, analytics systems, authentication workflows, scalable database architecture, and AI-powered recommendation pipelines.",
+        description: "Building Adtext, an AI monetization platform for conversational applications. Designed contextual ad delivery, analytics systems, and AI-powered recommendation pipelines.",
         type: "work",
-        tags: ["AI", "FastAPI", "Next.js", "React", "PostgreSQL", "LLMs", "Founder"]
+        tags: ["AI", "FastAPI", "Next.js", "React", "PostgreSQL", "LLMs", "Founder"],
+        current: true
     },
     {
         id: 2,
         title: "AI Engineer",
         role: "Coldrecs (Contract)",
         date: "Sep 2025 - Dec 2025",
-        description: "Contributed to building private and secure LLM infrastructure for enterprise clients in legal, healthcare, and government sectors.",
+        description: "Built private and secure LLM infrastructure for enterprise clients in legal, healthcare, and government sectors.",
         type: "work",
         tags: ["LLM/AI Integration", "Systems Design", "Infrastructure"]
     },
     {
         id: 3,
         title: "Software Engineer Intern",
-        role: "Tekpages IT Solutions Private Limited",
+        role: "Tekpages IT Solutions",
         date: "May 2025 - Aug 2025",
-        description: "Supported cloud-based application deployment on AWS, working with EC2, S3, and Linux-based environments under senior engineer guidance. Assisted in server configuration, application hosting, and runtime monitoring, gaining exposure to real-world production environments. Participated in testing, debugging, and issue analysis, improving application stability during deployment and post-release phases. Documented application architecture, deployment steps, and troubleshooting procedures, contributing to operational runbooks and knowledge transfer. Collaborated with team members to understand CI/CD pipelines, DevOps workflows, and release management processes.",
+        description: "Supported cloud-based application deployment on AWS (EC2, S3, Linux). Contributed to CI/CD pipelines, testing, and deployment documentation.",
         type: "work",
         tags: ["AWS", "Linux", "CI/CD", "DevOps", "EC2", "S3"]
     },
@@ -50,16 +52,16 @@ const timelineData: TimelineItem[] = [
         title: "DimeWise Finance Management App",
         role: "Personal Project",
         date: "Mar 2025 - Apr 2025",
-        description: "Built a full-stack finance management platform using Next.js, PostgreSQL, Prisma, and authentication workflows. Implemented secure authentication, protected routes, transaction management, analytics dashboards, and responsive user interfaces.",
+        description: "Full-stack finance management platform with secure authentication, transaction tracking, and analytics dashboards.",
         type: "achievement",
         tags: ["Next.js", "PostgreSQL", "Prisma", "Authentication", "Full Stack"]
     },
     {
         id: 5,
         title: "Bachelor of Technology - Computer Science",
-        role: "Trident Academy of Technology (TAT), Bhubaneswar",
+        role: "Trident Academy of Technology, Bhubaneswar",
         date: "Dec 2022 - May 2025",
-        description: "Grade: 7.5 CGPA. Led a 4-member team to secure 3rd place in an inter-college esports LAN competition, showcasing teamwork and strategy.",
+        description: "Grade: 7.5 CGPA. Led team to 3rd place in inter-college esports LAN competition.",
         type: "education",
         tags: ["BTech", "Computer Science", "Team Leadership"]
     },
@@ -68,7 +70,7 @@ const timelineData: TimelineItem[] = [
         title: "Web Development Intern",
         role: "Oasis Infobyte",
         date: "Dec 2023 - Jan 2024",
-        description: "Developed and deployed mobile-first, responsive web applications using React.js and HTML5. Created modular, reusable React components, reducing front-end development time by 25%. Conducted extensive cross-browser testing.",
+        description: "Developed mobile-first React applications. Built modular components reducing front-end development time by 25%.",
         type: "work",
         tags: ["React.js", "HTML5", "Agile", "Cross-browser Testing"]
     },
@@ -77,7 +79,7 @@ const timelineData: TimelineItem[] = [
         title: "Diploma in Information Technology",
         role: "Government Polytechnic, Bhubaneswar",
         date: "Oct 2018 - Jun 2021",
-        description: "Grade: 82%. Represented college as Forward Commander during cultural events, coordinating teams and ensuring smooth event execution.",
+        description: "Grade: 82%. Represented college as Forward Commander during cultural events.",
         type: "education",
         tags: ["Diploma", "Information Technology", "Event Management"]
     },
@@ -86,7 +88,7 @@ const timelineData: TimelineItem[] = [
         title: "Primary Education",
         role: "DPS Vidyapeeth",
         date: "2007 - 2018",
-        description: "Grade: 6.0/10 CGPA. Engaged in diverse extracurricular activities including Football, Basketball, Debate, and Speech.",
+        description: "CGPA: 6.0/10. Engaged in Football, Basketball, Debate, and Speech.",
         type: "education",
         tags: ["Science", "Debate", "Sports"]
     }
@@ -101,7 +103,7 @@ const Timeline = () => {
                 transition={{ duration: 0.5 }}
                 className="text-3xl font-bold text-center mb-12 text-zinc-800 dark:text-zinc-100"
             >
-                My Journey
+                Experience & Education
             </motion.h2>
 
             <div className="relative">
@@ -159,6 +161,11 @@ const Timeline = () => {
                                             <span className="text-sm font-semibold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase">
                                                 {item.date}
                                             </span>
+                                            {item.current && (
+                                                <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">
+                                                    Current
+                                                </span>
+                                            )}
                                         </div>
 
                                         <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-1">

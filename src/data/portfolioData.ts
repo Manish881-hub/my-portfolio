@@ -118,26 +118,26 @@ export const PROJECTS = [
 
 export const BLOGS = [
     {
-        title: "The Reality of Paid Referrals",
-        excerpt: "Recently, I came across a trend where some individuals charge just to provide a referral. Discussing the ethics and impact of this practice.",
+        title: "How Adtext Finds Relevant Ads in AI Conversations",
+        excerpt: "Building contextual ad infrastructure that detects conversation intent and surfaces relevant offers natively within chat interfaces — without harming user experience.",
         date: "Recent",
-        readTime: "2 min read",
-        platform: "LinkedIn"
+        readTime: "4 min read",
+        platform: "Adtext Blog"
     },
     {
-        title: "Debugging Kubernetes with AI",
-        excerpt: "Imagine debugging your entire Kubernetes app just by talking to your IDE. Exploring the future of AI-assisted DevOps workflows.",
+        title: "Lessons Building an AI Monetization SDK",
+        excerpt: "What I learned building a full-stack AI advertising platform: architecture decisions, API design, and integrating LLM-powered recommendation pipelines.",
+        date: "Recent",
+        readTime: "5 min read",
+        platform: "Adtext Blog"
+    },
+    {
+        title: "What MCP Changes for AI Applications",
+        excerpt: "Exploring how the Model Context Protocol enables standardized tool interaction for LLMs and what it means for agentic workflow architecture.",
         date: "Recent",
         readTime: "3 min read",
         platform: "LinkedIn"
     },
-    {
-        title: "Solving LeetCode 2872: DFS Challenges",
-        excerpt: "Working on Maximum Number of K-Divisible Components. Sharing insights on errors encountered while implementing the DFS-based solution.",
-        date: "Recent",
-        readTime: "4 min read",
-        platform: "LeetCode"
-    }
 ];
 
 export const TIMELINE_DATA = [
@@ -188,9 +188,6 @@ export const CERTIFICATIONS = [
     "JavaScript Intermediate (HackerRank, Nov 2025)",
     "SQL Intermediate (HackerRank, Nov 2025)",
     "AI Engineer Fresher (Unstop, Oct 2025)",
-    "Network Defense Fundamentals (Udemy, Jan 2025)",
-    "Tata Imagination Challenge 2024 (Unstop)",
-    "Intro to Cloud Computing (Infosys)",
 ];
 
 export const CURRENT_FOCUS = [
