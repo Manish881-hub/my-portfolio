@@ -1,6 +1,6 @@
 
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import {
     Github,
@@ -24,11 +24,9 @@ import {
     FileText,
     CalendarClock
 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import ScrollStack, { ScrollStackItem } from '../components/ScrollStack';
 import LogoLoop from '@/components/LogoLoop';
 
-import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS } from '../data/portfolioData';
+import { PROFILE, BADGES, PROJECTS, BLOGS, CERTIFICATIONS, CURRENT_FOCUS } from '../data/portfolioData';
 import Timeline from '../components/timeline';
 import { PillNav } from '../components/pill-nav';
 import { SplitText } from '../components/split-text';
@@ -51,7 +49,7 @@ const SectionTitle = ({ title, subtitle }: { title: string, subtitle?: string })
     <div className="mb-8">
         <h2 className="text-3xl font-bold text-primary mb-2 relative inline-block">
             {title}
-            <span className="absolute -bottom-1 left-0 w-1/3 h-1 bg-blue-500 rounded-full"></span>
+            <span className="absolute -bottom-1 left-0 w-1/3 h-1 bg-indigo-500 rounded-full"></span>
         </h2>
         {subtitle && <p className="text-gray-600 dark:text-gray-400 mt-2">{subtitle}</p>}
     </div>
@@ -65,7 +63,6 @@ const Card = ({ children, className = "" }: { children: React.ReactNode, classNa
 
 export default function App() {
     const [activeTab, setActiveTab] = useState('home');
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
 
@@ -73,12 +70,11 @@ export default function App() {
         <button
             onClick={() => {
                 setActiveTab(tab);
-                setIsMenuOpen(false);
                 window.scrollTo(0, 0);
             }}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 w-full md:w-auto text-left md:text-center
         ${activeTab === tab
-                    ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 font-medium'
+                    ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 font-medium'
                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
         >
@@ -139,10 +135,10 @@ export default function App() {
                             {/* Top Part: Text + Image */}
                             <div className="flex flex-col-reverse md:flex-row items-center gap-10">
                                 <div className="flex-1 space-y-6 text-center md:text-left">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
                                         <span className="relative flex h-2 w-2">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
                                         </span>
                                         Open to work
                                     </div>
@@ -167,12 +163,23 @@ export default function App() {
                                         ))}
                                     </div>
 
+                                    {/* Credibility Strip — Current Focus */}
+                                    <div className="pt-4 space-y-2">
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">Currently</p>
+                                        <div className="flex flex-col gap-1.5">
+                                            {CURRENT_FOCUS.map((item, i) => (
+                                                <div key={i} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                    <span>{item.icon}</span>
+                                                    <span>{item.label}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
                                     <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-6">
-
-
                                         <a
                                             href={`mailto:${PROFILE.email}`}
-                                            className="px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                                            className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 transition-all shadow-sm"
                                         >
                                             Contact Me
                                         </a>
@@ -237,31 +244,50 @@ export default function App() {
                 {
                     activeTab === 'about' && (
                         <div className="max-w-3xl mx-auto space-y-12 animate-in fade-in zoom-in-95 duration-300">
-                            <div className="text-center md:text-left">
-                                <h1 className="text-4xl font-bold text-primary mb-6">About Me</h1>
-                                <div className="max-w-none">
-                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        Hello! I'm Manish Bhakti Sagar, a <strong>Full-Stack Developer and AI Engineer</strong> focused on building AI-powered applications, developer tools, and scalable backend systems.
-                                    </p>
-                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        I am the founder of <strong>Adtext</strong>, where I'm building monetization infrastructure for conversational AI applications. My work involves React, Next.js, FastAPI, PostgreSQL, cloud platforms, and LLM-powered workflows.
-                                    </p>
-                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        Over the past few years, I've built full-stack products, worked with cloud deployments, developed REST APIs, designed database architectures, and explored modern AI application development. I enjoy solving product problems, shipping production-ready software, and learning new technologies through real-world projects.
-                                    </p>
-                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                        My recent focus has been on <strong>Generative AI, Model Context Protocol (MCP), Agentic Workflows, Claude Code, LLM Integration</strong>, cloud infrastructure, and scalable application architecture.
-                                    </p>
-                                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                        I'm actively interested in <strong>Software Engineering, AI Engineering, Product Engineering, and startup opportunities</strong> where I can build impactful products and work closely with users.
-                                    </p>
-                                </div>
-                            </div>
+                            {/* Who I Am */}
+                            <section className="text-center md:text-left">
+                                <SectionTitle title="Who I Am" />
+                                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    Founder and Full-Stack Developer focused on building AI-powered products, developer tools, and scalable web applications. I turn ideas into production-ready software — from concept to deployment.
+                                </p>
+                            </section>
 
+                            {/* What I Build */}
+                            <section>
+                                <SectionTitle title="What I Build" />
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {[
+                                        { icon: "📦", title: "SaaS Products", desc: "Full-stack platforms with auth, payments, and dashboards" },
+                                        { icon: "🤖", title: "LLM Applications", desc: "AI-powered tools, agents, and intelligent workflows" },
+                                        { icon: "⚙️", title: "Backend APIs", desc: "FastAPI, PostgreSQL, RESTful services at scale" },
+                                        { icon: "☁️", title: "Cloud Infrastructure", desc: "AWS, Docker, CI/CD, production deployments" },
+                                    ].map((item, i) => (
+                                        <div key={i} className="p-5 rounded-xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                                            <span className="text-2xl mb-2 block">{item.icon}</span>
+                                            <h4 className="font-semibold text-primary mb-1">{item.title}</h4>
+                                            <p className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* Current Focus */}
+                            <section>
+                                <SectionTitle title="Current Focus" />
+                                <div className="flex flex-wrap gap-2.5">
+                                    {["Model Context Protocol (MCP)", "Agentic Workflows", "AI Monetization", "FastAPI", "Next.js", "Cloud Architecture", "LLM Integration", "Generative AI"].map(item => (
+                                        <span key={item} className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* Tech Stack + Certifications */}
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div>
                                     <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
-                                        <Cpu size={20} className="text-blue-500" /> Tech Stack
+                                        <Cpu size={20} className="text-indigo-500" /> Tech Stack
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {['React.js', 'Next.js', 'TypeScript', 'Node.js', 'FastAPI', 'PostgreSQL', 'MongoDB', 'LLM Integration', 'Generative AI', 'Model Context Protocol (MCP)', 'Agentic Workflows', 'Prompt Engineering', 'AWS', 'Docker', 'SQL', 'JavaScript', 'Python'].map(skill => (
@@ -278,7 +304,7 @@ export default function App() {
                                     <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                                         {CERTIFICATIONS.map((cert, i) => (
                                             <li key={i} className="flex items-start gap-2">
-                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0"></span>
                                                 <span>{cert}</span>
                                             </li>
                                         ))}
@@ -286,6 +312,7 @@ export default function App() {
                                 </div>
                             </div>
 
+                            {/* Languages */}
                             <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl">
                                 <h3 className="text-lg font-bold text-primary mb-2">Languages</h3>
                                 <div className="flex gap-6 text-gray-600 dark:text-gray-400">
@@ -304,83 +331,105 @@ export default function App() {
                         <div className="animate-in fade-in zoom-in-95 duration-300">
                             <SectionTitle title="Projects" subtitle="Real products I've built — from idea to deployment." />
 
+                            {(() => {
+                                const featured = PROJECTS.filter(p => p.featured);
+                                const other = PROJECTS.filter(p => !p.featured);
+                                const gradients = [
+                                    'from-indigo-500 to-purple-600',
+                                    'from-violet-500 to-pink-500',
+                                    'from-blue-500 to-cyan-500',
+                                    'from-purple-500 to-rose-500',
+                                    'from-sky-500 to-indigo-500',
+                                    'from-fuchsia-500 to-violet-500',
+                                    'from-indigo-400 to-blue-500',
+                                ];
 
-
-                            <ScrollStack
-                                itemDistance={100}
-                                itemScale={0.03}
-                                itemStackDistance={30}
-                                stackPosition="20%"
-                                scaleEndPosition="10%"
-                                baseScale={0.9}
-                                scaleDuration={0.5}
-                                rotationAmount={5}
-                                blurAmount={0}
-                                useWindowScroll={true}
-                                className=""
-                            >
-                                {PROJECTS.map((project, idx) => (
-                                    <ScrollStackItem key={idx} itemClassName="!p-0 !bg-transparent !border-none !shadow-none !h-auto !w-full">
-                                        <motion.div
-                                            className="relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-6 md:p-8 shadow-xl overflow-hidden flex flex-col z-10"
-                                            initial={{ opacity: 0, y: 30 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true, margin: "-50px" }}
-                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-                                        >
-                                            <div className="flex justify-between items-start mb-4 md:mb-6">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="p-2 md:p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 dark:text-indigo-400">
-                                                        <Code size={24} className="md:w-7 md:h-7" />
-                                                    </div>
-                                                    <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
-                                                        {project.status}
-                                                    </span>
+                                const ProjectBanner = ({ project, idx }: { project: typeof PROJECTS[0], idx: number }) => (
+                                    <div className="h-24 md:h-28 relative overflow-hidden bg-gray-100 dark:bg-gray-700">
+                                        {project.image ? (
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className={`w-full h-full bg-gradient-to-br ${gradients[idx % gradients.length]} relative`}>
+                                                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:24px_24px]" />
+                                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 pt-8">
+                                                    <h4 className="text-white font-bold text-sm md:text-base leading-tight">{project.title}</h4>
+                                                    <p className="text-white/60 text-xs mt-0.5">{project.role}</p>
                                                 </div>
-                                                <a href={project.link} className="p-2 text-gray-400 hover:text-blue-500 transition-colors" target="_blank" rel="noopener noreferrer">
-                                                    <ExternalLink size={20} className="md:w-6 md:h-6" />
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+
+                                const ProjectInfo = ({ project }: { project: typeof PROJECTS[0] }) => (
+                                    <>
+                                        <div className="flex items-center justify-between mb-3 md:mb-4">
+                                            <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+                                                {project.status}
+                                            </span>
+                                            <div className="flex items-center gap-2">
+                                                {project.github && (
+                                                    <a href={project.github} className="p-1.5 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+                                                        <Github size={16} />
+                                                    </a>
+                                                )}
+                                                <a href={project.link} className="p-1.5 text-gray-400 hover:text-indigo-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="View live project">
+                                                    <ExternalLink size={16} />
                                                 </a>
                                             </div>
+                                        </div>
+                                        <div className="space-y-3 mb-4">
+                                            <p className="text-sm text-gray-600 dark:text-gray-300"><span className="font-semibold text-gray-700 dark:text-gray-200">Problem: </span>{project.problem}</p>
+                                            <p className="text-sm text-gray-600 dark:text-gray-300"><span className="font-semibold text-gray-700 dark:text-gray-200">Solution: </span>{project.solution}</p>
+                                            {project.impact && (
+                                                <p className="text-sm text-gray-600 dark:text-gray-300"><span className="font-semibold text-gray-700 dark:text-gray-200">Impact: </span>{project.impact}</p>
+                                            )}
+                                        </div>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.stack.map(item => (
+                                                <span key={item} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-xs font-medium">{item}</span>
+                                            ))}
+                                        </div>
+                                    </>
+                                );
 
-                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                                                {project.title}
-                                            </h3>
+                                return (
+                                    <>
+                                        <h3 className="text-lg font-semibold text-primary mb-5 flex items-center gap-2">
+                                            <span className="w-1.5 h-5 rounded-full bg-indigo-500 inline-block" />
+                                            Featured
+                                        </h3>
+                                        <div className="space-y-6 mb-14">
+                                            {featured.map((project, idx) => (
+                                                <div key={project.title} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+                                                    <ProjectBanner project={project} idx={idx} />
+                                                    <div className="p-5 md:p-7">
+                                                        <ProjectInfo project={project} />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
 
-                                            <div className="space-y-3 flex-grow">
-                                                <div>
-                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Problem</span>
-                                                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                        {project.problem}
-                                                    </p>
+                                        <h3 className="text-lg font-semibold text-primary mb-5 flex items-center gap-2">
+                                            <span className="w-1.5 h-5 rounded-full bg-gray-400 inline-block" />
+                                            Other Projects
+                                        </h3>
+                                        <div className="grid gap-5 md:grid-cols-2">
+                                            {other.map((project, idx) => (
+                                                <div key={project.title} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+                                                    <ProjectBanner project={project} idx={idx + featured.length} />
+                                                    <div className="p-4 md:p-5">
+                                                        <ProjectInfo project={project} />
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Solution</span>
-                                                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                        {project.solution}
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Role</span>
-                                                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">
-                                                        {project.role}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className="pt-4 md:pt-6 border-t border-gray-100 dark:border-gray-700 mt-4">
-                                                <div className="flex flex-wrap gap-2">
-                                                    {project.stack.map(item => (
-                                                        <span key={item} className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs md:text-sm font-medium">
-                                                            {item}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    </ScrollStackItem>
-                                ))}
-                            </ScrollStack>
-
+                                            ))}
+                                        </div>
+                                    </>
+                                );
+                            })()}
                         </div>
                     )
                 }
@@ -393,7 +442,7 @@ export default function App() {
 
                             <div className="space-y-6">
                                 {BLOGS.map((post, idx) => (
-                                    <SpotlightCard key={idx} className="p-6 transition-colors shadow-sm cursor-pointer" spotlightColor="rgba(59, 130, 246, 0.15)">
+                                    <SpotlightCard key={idx} className="p-6 transition-colors shadow-sm cursor-pointer" spotlightColor="rgba(79, 70, 229, 0.15)">
                                         <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
                                             <span className="flex items-center gap-1"><BookOpen size={14} /> {post.platform}</span>
                                             <span>•</span>
@@ -401,13 +450,13 @@ export default function App() {
                                             <span>•</span>
                                             <span>{post.readTime}</span>
                                         </div>
-                                        <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors">
+                                        <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-indigo-600 transition-colors">
                                             {post.title}
                                         </h3>
                                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                                             {post.excerpt}
                                         </p>
-                                        <div className="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                                        <div className="flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
                                             View Post <ArrowRight size={16} className="ml-1" />
                                         </div>
                                     </SpotlightCard>
