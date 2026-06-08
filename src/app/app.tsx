@@ -33,6 +33,7 @@ import { SplitText } from '../components/split-text';
 import Dock from '../components/Dock';
 import BorderGlow from '@/components/BorderGlow';
 import SpotlightCard from '../components/SpotlightCard';
+import XChatWindow from '@/components/XChatWindow';
 
 
 
@@ -102,6 +103,7 @@ export default function App() {
                     { id: 'timeline', label: 'Timeline', icon: CalendarClock },
                     { id: 'blog', label: 'Blog', icon: BookOpen },
                     { id: 'about', label: 'About', icon: Users },
+                    { id: 'contact', label: 'Contact', icon: Mail },
                     { id: 'cv', label: 'CV', icon: FileText },
                 ]}
                 className="hidden md:flex absolute top-6 left-1/2 -translate-x-1/2 z-50"
@@ -118,6 +120,7 @@ export default function App() {
                     { id: 'timeline', label: 'Timeline', icon: CalendarClock },
                     { id: 'blog', label: 'Blog', icon: BookOpen },
                     { id: 'about', label: 'About', icon: Users },
+                    { id: 'contact', label: 'Contact', icon: Mail },
                     { id: 'cv', label: 'CV', icon: FileText },
                 ]}
                 className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2"
@@ -494,6 +497,60 @@ export default function App() {
                     )
                 }
 
+                {/* --- CONTACT SECTION --- */}
+                {
+                    activeTab === 'contact' && (
+                        <div className="max-w-3xl mx-auto space-y-10 animate-in fade-in zoom-in-95 duration-300">
+                            <section className="text-center">
+                                <h2 className="text-4xl font-extrabold text-primary mb-3">Let's Connect</h2>
+                                <p className="text-gray-500 dark:text-gray-400 text-lg">
+                                    Interested in:
+                                </p>
+                                <div className="flex flex-wrap justify-center gap-2 mt-3">
+                                    {["AI Products", "AdTech", "Agentic Workflows", "Full-Stack Engineering"].map(item => (
+                                        <span key={item} className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* Current Focus Card */}
+                            <section className="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 shadow-sm max-w-md mx-auto">
+                                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">Currently</p>
+                                <div className="space-y-2.5">
+                                    {CURRENT_FOCUS.map((item, i) => (
+                                        <div key={i} className="flex items-center gap-2.5 text-sm text-gray-600 dark:text-gray-400">
+                                            <span>{item.icon}</span>
+                                            <span>{item.label}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* XChatWindow — centered widget */}
+                            <div className="flex justify-center">
+                                <XChatWindow />
+                            </div>
+
+                            {/* Social icons directly below widget */}
+                            <div className="flex justify-center gap-4 -mt-4">
+                                <a href="https://www.linkedin.com/in/manish-bhaktisagar/" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">
+                                    <Linkedin size={18} />
+                                </a>
+                                <a href={PROFILE.socials.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-black hover:text-white transition-all" aria-label="GitHub">
+                                    <Github size={18} />
+                                </a>
+                                <a href={`mailto:${PROFILE.email}`} className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-green-500 hover:text-white transition-all" aria-label="Email">
+                                    <Mail size={18} />
+                                </a>
+                                <a href="/cv" className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-indigo-600 hover:text-white transition-all" aria-label="Resume">
+                                    <FileText size={18} />
+                                </a>
+                            </div>
+                        </div>
+                    )
+                }
 
             </main>
 
