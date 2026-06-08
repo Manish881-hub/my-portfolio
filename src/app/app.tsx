@@ -534,7 +534,7 @@ export default function App() {
                             </div>
 
                             {/* Social icons directly below widget */}
-                            <div className="flex justify-center gap-4 -mt-4">
+                            {/*<div className="flex justify-center gap-4 -mt-4">
                                 <a href="https://www.linkedin.com/in/manish-bhaktisagar/" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">
                                     <Linkedin size={18} />
                                 </a>
@@ -547,7 +547,7 @@ export default function App() {
                                 <a href="/cv" className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:bg-indigo-600 hover:text-white transition-all" aria-label="Resume">
                                     <FileText size={18} />
                                 </a>
-                            </div>
+                            </div>*/}
                         </div>
                     )
                 }
