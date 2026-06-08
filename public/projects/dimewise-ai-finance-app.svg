@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="g-7c3aed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="none"/>
+      <rect width="1" height="1" fill="rgba(255,255,255,0.03)" x="0" y="0"/>
+    </pattern>
+  </defs>
+  <!-- bg -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+  <!-- browser chrome -->
+  <rect x="0" y="0" width="800" height="30" fill="rgba(0,0,0,0.2)"/>
+  <circle cx="14" cy="15" r="4" fill="#ff5f57"/>
+  <circle cx="28" cy="15" r="4" fill="#ffbd2e"/>
+  <circle cx="42" cy="15" r="4" fill="#28c840"/>
+  <text x="400" y="19" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="system-ui,sans-serif" font-size="10">Dimewise — AI Finance Dashboard</text>
+  <!-- sidebar -->
+  <rect x="0" y="30" width="160" height="470" fill="rgba(0,0,0,0.15)"/>
+  <!-- logo in sidebar -->
+  <rect x="12" y="40" width="24" height="24" rx="6" fill="white" opacity="0.15"/>
+  <text x="44" y="57" fill="rgba(255,255,255,0.8)" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Dimewise</text>
+  <!-- nav items -->
+  <text x="16" y="56" fill="rgba(255,255,255,0.95)" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Dashboard</text><text x="16" y="84" fill="rgba(255,255,255,0.4)" font-family="system-ui,sans-serif" font-size="11" font-weight="400">Budget</text><text x="16" y="112" fill="rgba(255,255,255,0.4)" font-family="system-ui,sans-serif" font-size="11" font-weight="400">Transactions</text><text x="16" y="140" fill="rgba(255,255,255,0.4)" font-family="system-ui,sans-serif" font-size="11" font-weight="400">Insights</text><text x="16" y="168" fill="rgba(255,255,255,0.4)" font-family="system-ui,sans-serif" font-size="11" font-weight="400">Settings</text>
+  <!-- content area -->
+  <rect x="180" y="60" width="200" height="80" rx="6" fill="rgba(255,255,255,0.08)"/><rect x="190" y="70" width="80" height="6" rx="3" fill="rgba(255,255,255,0.15)"/><rect x="190" y="84" width="140" height="4" rx="2" fill="rgba(255,255,255,0.08)"/><rect x="400" y="60" width="200" height="80" rx="6" fill="rgba(255,255,255,0.08)"/><rect x="410" y="70" width="80" height="6" rx="3" fill="rgba(255,255,255,0.15)"/><rect x="410" y="84" width="140" height="4" rx="2" fill="rgba(255,255,255,0.08)"/><rect x="180" y="160" width="420" height="140" rx="6" fill="rgba(255,255,255,0.08)"/><rect x="190" y="170" width="168" height="6" rx="3" fill="rgba(255,255,255,0.15)"/><rect x="190" y="184" width="294" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+</svg>
