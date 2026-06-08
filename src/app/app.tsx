@@ -151,6 +151,10 @@ export default function App() {
                                         {PROFILE.role}
                                     </h2>
 
+                                    <p className="text-lg text-gray-500 dark:text-gray-400 font-medium">
+                                        Building monetization infrastructure for conversational AI.
+                                    </p>
+
                                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
                                         {PROFILE.tagline}
                                     </p>
@@ -182,6 +186,18 @@ export default function App() {
                                             className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 transition-all shadow-sm"
                                         >
                                             Contact Me
+                                        </a>
+                                        <button
+                                            onClick={() => { setActiveTab('projects'); window.scrollTo(0, 0); }}
+                                            className="px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                                        >
+                                            View Projects
+                                        </button>
+                                        <a
+                                            href="/cv"
+                                            className="px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                                        >
+                                            Resume
                                         </a>
                                     </div>
                                 </div>
@@ -252,6 +268,18 @@ export default function App() {
                                 </p>
                             </section>
 
+                            {/* Current Focus */}
+                            <section>
+                                <SectionTitle title="Current Focus" />
+                                <div className="flex flex-wrap gap-2.5">
+                                    {["Model Context Protocol (MCP)", "Agentic Workflows", "AI Monetization", "FastAPI", "Next.js", "Cloud Architecture", "LLM Integration", "Generative AI"].map(item => (
+                                        <span key={item} className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </section>
+
                             {/* What I Build */}
                             <section>
                                 <SectionTitle title="What I Build" />
@@ -267,18 +295,6 @@ export default function App() {
                                             <h4 className="font-semibold text-primary mb-1">{item.title}</h4>
                                             <p className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</p>
                                         </div>
-                                    ))}
-                                </div>
-                            </section>
-
-                            {/* Current Focus */}
-                            <section>
-                                <SectionTitle title="Current Focus" />
-                                <div className="flex flex-wrap gap-2.5">
-                                    {["Model Context Protocol (MCP)", "Agentic Workflows", "AI Monetization", "FastAPI", "Next.js", "Cloud Architecture", "LLM Integration", "Generative AI"].map(item => (
-                                        <span key={item} className="px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium">
-                                            {item}
-                                        </span>
                                     ))}
                                 </div>
                             </section>
