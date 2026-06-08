@@ -45,7 +45,7 @@ export default function LinksPage() {
                 {/* Profile Section */}
                 <div className="flex flex-col items-center text-center space-y-4 mt-12 mb-8">
                     <div className="relative w-24 h-24 md:w-28 md:h-28">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 blur-[6px] opacity-30"></div>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-400 to-purple-600 blur-[6px] opacity-30"></div>
                         <div className="relative rounded-full overflow-hidden w-full h-full border-4 border-white">
                             <img src="/profile.png" alt={PROFILE.name} className="w-full h-full object-cover" />
                         </div>
@@ -54,7 +54,7 @@ export default function LinksPage() {
                     <div className="space-y-2">
                         <h1 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center justify-center gap-1.5">
                             {PROFILE.name}
-                            <BadgeCheck className="text-blue-500 fill-blue-500 text-white" size={22} />
+                            <BadgeCheck className="text-indigo-500 fill-indigo-500 text-white" size={22} />
                         </h1>
                         <p className="text-gray-600 text-sm md:text-base max-w-sm leading-relaxed font-medium">
                             {PROFILE.role}

@@ -35,13 +35,13 @@ const Dock = ({ items, activeTab, onTabChange, className }: DockProps) => {
                         >
                             <div
                                 className={`relative flex h-full w-full items-center justify-center rounded-full transition-colors ${activeTab === item.id
-                                        ? "bg-blue-500/20 text-blue-600 dark:text-blue-400"
+                                        ? "bg-indigo-500/20 text-indigo-600 dark:text-indigo-400"
                                         : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
                                     }`}
                             >
                                 <item.icon className="h-2/5 w-2/5" />
                                 {activeTab === item.id && (
-                                    <span className="absolute -bottom-2 h-1 w-1 rounded-full bg-blue-500" />
+                                    <span className="absolute -bottom-2 h-1 w-1 rounded-full bg-indigo-500" />
                                 )}
                             </div>
                         </a>
@@ -92,7 +92,7 @@ function DockIcon({
         >
             <div
                 className={`relative flex h-full w-full items-center justify-center rounded-full transition-colors ${isActive
-                    ? "bg-blue-500/20 text-blue-600 dark:text-blue-400"
+                    ? "bg-indigo-500/20 text-indigo-600 dark:text-indigo-400"
                     : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
                     }`}
             >

@@ -139,7 +139,7 @@ const Timeline = () => {
                                         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 + (index * 0.1) }}
                                         className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 shadow-xl group-hover:scale-110 transition-transform duration-300 group-hover:border-blue-500/30"
                                     >
-                                        {item.type === 'work' && <Briefcase className="w-5 h-5 text-blue-500" />}
+                                        {item.type === 'work' && <Briefcase className="w-5 h-5 text-indigo-500" />}
                                         {item.type === 'education' && <GraduationCap className="w-5 h-5 text-emerald-500" />}
                                         {item.type === 'achievement' && <Star className="w-5 h-5 text-amber-500" />}
                                     </motion.div>
@@ -156,7 +156,7 @@ const Timeline = () => {
                     flex flex-col
                   `}>
                                         <div className="flex items-center gap-2 mb-2 sm:mb-1 opacity-80">
-                                            <span className="text-sm font-semibold tracking-wider text-blue-600 dark:text-blue-400 uppercase">
+                                            <span className="text-sm font-semibold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase">
                                                 {item.date}
                                             </span>
                                         </div>
@@ -167,7 +167,7 @@ const Timeline = () => {
 
                                         <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-3">
                                             {item.link ? (
-                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                                                     {item.role}
                                                 </a>
                                             ) : (
