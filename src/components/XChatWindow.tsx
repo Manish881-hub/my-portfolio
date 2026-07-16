@@ -43,8 +43,8 @@ function IconDoubleChevron({ color }: { color: string }) {
 export default function XChatWindow({
     buttonText = "Talk with Manish",
     profileName = "Manish Bhakti Sagar",
-    profileTitle = "Founder @ Adtext",
-    profileHandle = "AI Engineer · Full-Stack Developer",
+    profileTitle = "Full Stack Engineer",
+    profileHandle = "AWS Certified · AI Engineer · Cloud & Backend",
     profileImage = "/profile.png",
     welcomeText = "Interested in AI products, AdTech, startups, or engineering? Send me a message.",
     helperText = "I'll respond fastest on LinkedIn.",

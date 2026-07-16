@@ -155,7 +155,7 @@ export default function App() {
                                     </h2>
 
                                     <p className="text-lg text-gray-500 dark:text-gray-400 font-medium">
-                                        Building monetization infrastructure for conversational AI.
+                                        I build AI-powered products, developer tools, and scalable web applications.
                                     </p>
 
                                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
@@ -267,7 +267,13 @@ export default function App() {
                             <section className="text-center md:text-left">
                                 <SectionTitle title="Who I Am" />
                                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    Founder and Full-Stack Developer focused on building AI-powered products, developer tools, and scalable web applications. I turn ideas into production-ready software — from concept to deployment.
+                                    Full Stack Engineer with 1+ year of experience building cloud-native applications and deploying them on AWS. AWS Certified Cloud Practitioner with hands-on experience in Docker, Linux, and CI/CD.
+                                </p>
+                                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
+                                    Recently built and shipped a full-stack AI product from scratch — handling everything from frontend (React/Next.js) to backend (FastAPI/Node.js) to infrastructure (AWS EC2, S3, IAM). Made the strategic decision to sunset the product after assessing market readiness.
+                                </p>
+                                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
+                                    Currently looking for Full Stack, Backend, DevOps, or Cloud Engineer roles. Open to remote or Bangalore/Hyderabad.
                                 </p>
                             </section>
 
@@ -290,7 +296,7 @@ export default function App() {
                                     {[
                                         { icon: "📦", title: "SaaS Products", desc: "Full-stack platforms with auth, payments, and dashboards" },
                                         { icon: "🤖", title: "LLM Applications", desc: "AI-powered tools, agents, and intelligent workflows" },
-                                        { icon: "⚙️", title: "Backend APIs", desc: "FastAPI, PostgreSQL, RESTful services at scale" },
+                                        { icon: "⚙️", title: "Backend APIs", desc: "FastAPI, Node.js, PostgreSQL at scale" },
                                         { icon: "☁️", title: "Cloud Infrastructure", desc: "AWS, Docker, CI/CD, production deployments" },
                                     ].map((item, i) => (
                                         <div key={i} className="p-5 rounded-xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
@@ -309,7 +315,7 @@ export default function App() {
                                         <Cpu size={20} className="text-indigo-500" /> Tech Stack
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {['React.js', 'Next.js', 'TypeScript', 'Node.js', 'FastAPI', 'PostgreSQL', 'MongoDB', 'LLM Integration', 'Generative AI', 'Model Context Protocol (MCP)', 'Agentic Workflows', 'Prompt Engineering', 'AWS', 'Docker', 'SQL', 'JavaScript', 'Python'].map(skill => (
+                                        {['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL', 'React.js', 'Next.js', 'Tailwind CSS', 'Node.js', 'FastAPI', 'Spring Boot', 'PostgreSQL', 'MySQL', 'MongoDB', 'Prisma', 'AWS (EC2, S3, IAM, RDS)', 'Docker', 'Linux', 'CI/CD', 'LLM Integration', 'Prompt Engineering', 'RAG', 'Agentic Workflows'].map(skill => (
                                             <span key={skill} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm">
                                                 {skill}
                                             </span>

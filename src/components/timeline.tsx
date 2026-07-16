@@ -20,50 +20,49 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
     {
         id: 1,
-        title: "Founder & Product Builder",
-        role: "Adtext",
-        date: "Jan 2026 - Present",
+        title: "Full Stack Engineer",
+        role: "Adtext (Startup)",
+        date: "Jan 2026 - Jul 2026",
         link: "https://adtext.org/",
-        description: "Building Adtext, an AI monetization platform for conversational applications. Designed contextual ad delivery, analytics systems, and AI-powered recommendation pipelines.",
+        description: "Built a full-stack AI monetization platform from scratch using React, Next.js, FastAPI, Node.js, and PostgreSQL. Deployed on AWS using Docker. Integrated LLM APIs (OpenRouter, Mistral) for context-aware ad recommendations. Led go-to-market: cold outreach to 20+ publishers, built pitch decks, closed a pilot conversation. Made the strategic decision to sunset the product after assessing market readiness.",
         type: "work",
-        tags: ["AI", "FastAPI", "Next.js", "React", "PostgreSQL", "LLMs", "Founder"],
-        current: true
+        tags: ["FastAPI", "React", "Next.js", "Node.js", "PostgreSQL", "AWS", "Docker", "LLM"]
     },
     {
         id: 2,
-        title: "AI Engineer",
-        role: "Coldrecs (Contract)",
-        date: "Sep 2025 - Dec 2025",
-        description: "Built private and secure LLM infrastructure for enterprise clients in legal, healthcare, and government sectors.",
+        title: "Full Stack Engineer",
+        role: "Coldrecs Private Limited",
+        date: "Jul 2025 - Dec 2025",
+        description: "Built and maintained secure applications for enterprise clients in legal, healthcare, and government sectors. Developed backend solutions using Spring MVC, Spring Boot, and Java. Built frontend interfaces using React.js, Next.js, and TypeScript. Managed MySQL databases using JDBC. Deployed applications on AWS (EC2, S3, IAM). Promoted from intern in 3 months.",
         type: "work",
-        tags: ["LLM/AI Integration", "Systems Design", "Infrastructure"]
+        tags: ["Java", "SpringBoot", "React", "Next.js", "TypeScript", "MySQL", "AWS"]
     },
     {
         id: 3,
+        title: "Software Engineer Intern",
+        role: "Coldrecs Private Limited",
+        date: "Mar 2025 - Jun 2025",
+        description: "Contributed to building secure backend infrastructure for enterprise clients. Worked on systems design and backend integration using Java and Spring MVC. Collaborated on database design and API development. Recognized for performance and promoted to Full Stack Engineer.",
+        type: "work",
+        tags: ["Java", "SpringMVC", "Backend", "Database Design"]
+    },
+    {
+        id: 4,
+        title: "Dimewise — Finance Management Platform",
+        role: "Personal Project",
+        date: "Feb 2025 - Apr 2025",
+        description: "Built a full-stack finance management platform using Next.js, React, TypeScript, and Tailwind CSS. Implemented user authentication, transaction tracking, and data visualization. Integrated REST APIs and managed data with PostgreSQL and Prisma ORM.",
+        type: "achievement",
+        tags: ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "TailwindCSS"]
+    },
+    {
+        id: 5,
         title: "Software Engineer Intern",
         role: "Tekpages IT Solutions",
         date: "May 2025 - Aug 2025",
         description: "Supported cloud-based application deployment on AWS (EC2, S3, Linux). Contributed to CI/CD pipelines, testing, and deployment documentation.",
         type: "work",
         tags: ["AWS", "Linux", "CI/CD", "DevOps", "EC2", "S3"]
-    },
-    {
-        id: 4,
-        title: "DimeWise Finance Management App",
-        role: "Personal Project",
-        date: "Mar 2025 - Apr 2025",
-        description: "Full-stack finance management platform with secure authentication, transaction tracking, and analytics dashboards.",
-        type: "achievement",
-        tags: ["Next.js", "PostgreSQL", "Prisma", "Authentication", "Full Stack"]
-    },
-    {
-        id: 5,
-        title: "Bachelor of Technology - Computer Science",
-        role: "Trident Academy of Technology, Bhubaneswar",
-        date: "Dec 2022 - May 2025",
-        description: "Grade: 7.5 CGPA. Led team to 3rd place in inter-college esports LAN competition.",
-        type: "education",
-        tags: ["BTech", "Computer Science", "Team Leadership"]
     },
     {
         id: 6,
@@ -76,6 +75,15 @@ const timelineData: TimelineItem[] = [
     },
     {
         id: 7,
+        title: "Bachelor of Technology - Computer Science",
+        role: "Trident Academy of Technology, Bhubaneswar",
+        date: "Dec 2022 - May 2025",
+        description: "Grade: 7.5 CGPA. Led team to 3rd place in inter-college esports LAN competition.",
+        type: "education",
+        tags: ["BTech", "Computer Science", "Team Leadership"]
+    },
+    {
+        id: 8,
         title: "Diploma in Information Technology",
         role: "Government Polytechnic, Bhubaneswar",
         date: "Oct 2018 - Jun 2021",
@@ -84,7 +92,7 @@ const timelineData: TimelineItem[] = [
         tags: ["Diploma", "Information Technology", "Event Management"]
     },
     {
-        id: 8,
+        id: 9,
         title: "Primary Education",
         role: "DPS Vidyapeeth",
         date: "2007 - 2018",

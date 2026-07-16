@@ -2,24 +2,24 @@ import { Github, Twitter, Linkedin, Globe, Code, Mail } from 'lucide-react';
 
 export const PROFILE = {
     name: "Manish Bhakti Sagar",
-    role: "Founder @ Adtext | Full-Stack Developer | AI Engineer",
-    tagline: "I build AI-powered products, developer tools, and scalable web applications. Focused on AI monetization infrastructure, agentic systems, and cloud-native products.",
+    role: "Full Stack Engineer | AWS Certified | Cloud & Backend",
+    tagline: "I build AI-powered products, developer tools, and scalable web applications. 1+ year of experience shipping production code — from frontend to backend to AWS infrastructure.",
     location: "Bhubaneswar, Odisha, India",
     email: "bhaktisagar.manish@gmail.com",
     socials: {
         github: "https://github.com/Manish881-hub",
         twitter: "https://x.com/manishbhakti?s=21",
-        linkedin: "https://www.linkedin.com/in/manish-bhakti-sagar-823404234/",
+        linkedin: "https://www.linkedin.com/in/manish-bhaktisagar/",
         reddit: "https://www.reddit.com/u/Quiet-Remove-3822/s/NsWuyZUGWp",
         hackerrank: "https://www.hackerrank.com/profile/manishbhakti881"
     }
 };
 
 export const BADGES = [
-    { title: "Founder", icon: "🚀", color: "bg-indigo-100 text-indigo-800" },
+    { title: "Full-Stack Engineer", icon: "⚛️", color: "bg-indigo-100 text-indigo-800" },
     { title: "AI Engineer", icon: "🤖", color: "bg-purple-100 text-purple-800" },
-    { title: "Full-Stack Developer", icon: "⚛️", color: "bg-indigo-100 text-indigo-800" },
-    { title: "Cloud & Backend Systems", icon: "☁️", color: "bg-violet-100 text-violet-800" }
+    { title: "Cloud Engineer", icon: "☁️", color: "bg-violet-100 text-violet-800" },
+    { title: "AWS Certified", icon: "☁️", color: "bg-amber-100 text-amber-800" }
 ];
 
 export const PROJECTS = [
@@ -143,27 +143,27 @@ export const BLOGS = [
 export const TIMELINE_DATA = [
     {
         org: "Adtext",
-        role: "Founder & Product Builder",
-        date: "Jan 2026 - Present",
+        role: "Full Stack Engineer",
+        date: "Jan 2026 - Jul 2026",
         location: "Remote",
         type: "Work",
-        description: "Building Adtext, an AI monetization platform for conversational applications. Designed and developed a full-stack AI advertising platform enabling contextual ad delivery inside AI chat experiences. Built responsive React.js and Next.js frontends, FastAPI backend services, analytics systems, authentication workflows, scalable database architecture, and AI-powered recommendation pipelines."
+        description: "Built a full-stack AI monetization platform from scratch using React, Next.js, FastAPI, Node.js, and PostgreSQL. Deployed on AWS using Docker. Integrated LLM APIs (OpenRouter, Mistral) for context-aware ad recommendations. Led go-to-market: cold outreach to 20+ publishers, built pitch decks, closed a pilot conversation. Made the strategic decision to sunset the product after assessing market readiness."
     },
     {
-        org: "TekPages IT Solutions",
-        role: "Full Stack Intern",
-        date: "May 2025 - Aug 2025",
+        org: "Coldrecs Private Limited",
+        role: "Full Stack Engineer",
+        date: "Jul 2025 - Dec 2025",
         location: "Bangalore, India",
         type: "Work",
-        description: "Supported cloud-based application deployment on AWS, working with EC2, S3, and Linux-based environments. Assisted in server configuration, application hosting, and runtime monitoring. Participated in testing, debugging, and issue analysis, improving application stability. Documented application architecture, deployment steps, and troubleshooting procedures. Collaborated with team members to understand CI/CD pipelines, DevOps workflows, and release management processes."
+        description: "Built and maintained secure applications for enterprise clients in legal, healthcare, and government sectors. Developed backend solutions using Spring MVC, Spring Boot, and Java. Built frontend interfaces using React.js, Next.js, and TypeScript. Managed MySQL databases using JDBC. Deployed applications on AWS (EC2, S3, IAM). Promoted from intern in 3 months."
     },
     {
-        org: "Oasis Infobyte",
-        role: "Web Development Intern",
-        date: "Dec 2023 - Jan 2024",
-        location: "Remote",
+        org: "Coldrecs Private Limited",
+        role: "Software Engineer Intern",
+        date: "Mar 2025 - Jun 2025",
+        location: "Bangalore, India",
         type: "Work",
-        description: "Developed mobile-first React apps, improving engagement by 30%."
+        description: "Contributed to building secure backend infrastructure for enterprise clients. Worked on systems design and backend integration using Java and Spring MVC. Collaborated on database design and API development. Recognized for performance and promoted to Full Stack Engineer."
     },
     {
         org: "Trident Academy of Technology",
