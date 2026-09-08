@@ -1,25 +1,38 @@
-import { Github, Twitter, Linkedin, Globe, Code, Mail } from 'lucide-react';
+import { Github, Twitter, Linkedin, Globe, Code, Mail, Atom, Bot, Cloud, Award } from 'lucide-react';
 
 export const PROFILE = {
     name: "Manish Bhakti Sagar",
-    role: "Full Stack Engineer | AWS Certified | Cloud & Backend",
-    tagline: "I build AI-powered products, developer tools, and scalable web applications. 1+ year of experience shipping production code — from frontend to backend to AWS infrastructure.",
+    role: "LLM Engineer | Generative AI Engineer | Python Developer",
+    tagline: "LLM Engineer and Python Developer building AI-powered applications with FastAPI, OpenAI APIs, RAG, and conversational AI — from AI assistants and LLM workflows to scalable backends on AWS.",
     location: "Bhubaneswar, Odisha, India",
     email: "bhaktisagar.manish@gmail.com",
     socials: {
         github: "https://github.com/Manish881-hub",
-        twitter: "https://x.com/manishbhakti?s=21",
+        twitter: "https://x.com/manishbhakti",
         linkedin: "https://www.linkedin.com/in/manish-bhaktisagar/",
-        reddit: "https://www.reddit.com/u/Quiet-Remove-3822/s/NsWuyZUGWp",
         hackerrank: "https://www.hackerrank.com/profile/manishbhakti881"
     }
 };
 
 export const BADGES = [
-    { title: "Full-Stack Engineer", icon: "⚛️", color: "bg-indigo-100 text-indigo-800" },
-    { title: "AI Engineer", icon: "🤖", color: "bg-purple-100 text-purple-800" },
-    { title: "Cloud Engineer", icon: "☁️", color: "bg-violet-100 text-violet-800" },
-    { title: "AWS Certified", icon: "☁️", color: "bg-amber-100 text-amber-800" }
+    { title: "LLM Engineer", Icon: Atom, color: "bg-indigo-100 text-indigo-800" },
+    { title: "AI Engineer", Icon: Bot, color: "bg-purple-100 text-purple-800" },
+    { title: "Cloud Engineer", Icon: Cloud, color: "bg-violet-100 text-violet-800" },
+    { title: "AWS Certified", Icon: Award, color: "bg-amber-100 text-amber-800" }
+];
+
+export const AVAILABILITY = {
+    status: "Open to Full Stack, Backend, DevOps, and Cloud Engineer roles",
+    locations: "Remote · Bangalore · Hyderabad",
+    bestContact: "Email gets the fastest reply — or connect on LinkedIn.",
+};
+
+export const TECH_STACK = [
+    "JavaScript", "TypeScript", "Python", "Java", "SQL",
+    "React.js", "Next.js", "Tailwind CSS", "Node.js", "FastAPI",
+    "Spring Boot", "PostgreSQL", "MySQL", "MongoDB", "Prisma",
+    "AWS (EC2, S3, IAM, RDS)", "Docker", "Linux", "CI/CD",
+    "LLM Integration", "Prompt Engineering", "RAG", "Agentic Workflows",
 ];
 
 export const PROJECTS = [
@@ -34,6 +47,7 @@ export const PROJECTS = [
         link: "https://adtext.org/",
         github: null,
         image: "/projects/adtext.svg",
+        highlights: ["Live MVP at adtext.org", "20+ publisher outreaches, 1 pilot conversation", "LLM recommendations via OpenRouter & Mistral"],
         featured: true
     },
     {
@@ -47,6 +61,91 @@ export const PROJECTS = [
         link: "https://dimewise.vercel.app/",
         github: null,
         image: "/projects/dimewise-ai-finance-app.svg",
+        highlights: ["Live demo at dimewise.vercel.app", "Auth, budgeting & transaction tracking", "AI-powered financial insights"],
+        featured: true
+    },
+    {
+        title: "ESP32 AI — LLM on a Microcontroller",
+        problem: "Frontier language models need servers or GPUs, ruling out private, offline inference on tiny hardware.",
+        solution: "Ported a 28.9M-parameter language model to run fully on-device on an $8 ESP32-S3, streaming tokens to an attached screen at ~9 tokens/second with nothing sent to a server.",
+        impact: "100x larger than the previous 260K-parameter on-chip record — most-starred build, with a live hardware demo.",
+        role: "AI Engineer",
+        stack: ["Python", "ESP32-S3", "On-device LLM", "Embedded AI"],
+        status: "Featured",
+        link: "https://github.com/Manish881-hub/esp32-ai",
+        github: "https://github.com/Manish881-hub/esp32-ai",
+        image: null,
+        highlights: ["28.9M params fully on-device", "~9 tokens/sec on $8 hardware", "Live hardware demo GIF"],
+        featured: true
+    },
+    {
+        title: "AI Voice Receptionist",
+        problem: "A premium wellness resort needed to answer caller questions about packages without adding front-desk load.",
+        solution: "LiveKit Agents voice receptionist with OpenAI GPT, Cartesia TTS, Deepgram STT, a package-information tool, multimodal turn detection, and noise cancellation.",
+        impact: "Production voice agent for a real resort client, with a recorded demo of full caller conversations.",
+        role: "AI Engineer",
+        stack: ["TypeScript", "LiveKit Agents", "OpenAI", "Cartesia", "Deepgram"],
+        status: "Featured",
+        link: "https://drive.google.com/drive/folders/1sLyfz_vF0XEHdakmL6QUuRlRx-4gsWE9",
+        github: "https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan",
+        image: null,
+        highlights: ["Real client deployment", "Tool calling + turn detection", "Sub-500ms voice pipeline"],
+        featured: true
+    },
+    {
+        title: "Radiology Report Harness",
+        problem: "LLM-generated radiology reports drift from required templates — breaking negation, laterality, and measurements.",
+        solution: "Template-faithful harness that routes each dictated finding to its field, edits abnormals minimally, preserves normals verbatim, and validates every report; Gemini 2.0 Flash at temperature 0 with deterministic fallback.",
+        impact: "End-to-end test.csv to submission.csv pipeline with field-routing and preservation checks.",
+        role: "AI Engineer",
+        stack: ["Python", "Gemini API", "LLM Evals", "Harness Engineering"],
+        status: "New",
+        link: "https://github.com/Manish881-hub/Radiology-harness",
+        github: "https://github.com/Manish881-hub/Radiology-harness",
+        image: null,
+        highlights: ["Template-faithful generation", "Negation + laterality validation", "Deterministic fallback path"],
+        featured: false
+    },
+    {
+        title: "Context Policy Platform",
+        problem: "Permissions baked into prompts can't enforce context-dependent access for AI agents calling tools.",
+        solution: "Policy-first platform that evaluates identity plus live context fresh on every tool call — the same request is allowed or denied based on queue, GPS check-in, and ticket state.",
+        impact: "Working authorization layer for field-service agent tooling, built from scratch.",
+        role: "AI Engineer",
+        stack: ["Python", "Policy Engine", "Agent Tool-use", "FastAPI"],
+        status: "Building",
+        link: "https://github.com/Manish881-hub/context-policy-platform",
+        github: "https://github.com/Manish881-hub/context-policy-platform",
+        image: null,
+        highlights: ["Policy-first, not prompt-first", "Per-call context evaluation", "Field-service authorization"],
+        featured: false
+    },
+    {
+        title: "SEO/AEO Blog Engine",
+        problem: "AI content agents with write access are unsafe, and most auto-generated posts never match real search demand.",
+        solution: "Agentic blog engine with a hard invariant — the agent has no write tool. It audits posts, drafts against demand, and posts suggestion cards to Slack; a server handler publishes only after a human click.",
+        impact: "Human-in-the-loop publishing loop with demand measurement built in.",
+        role: "AI Engineer",
+        stack: ["TypeScript", "Slack API", "Agentic Workflows", "SEO"],
+        status: "New",
+        link: "https://github.com/Manish881-hub/seo-aeo-blogengine",
+        github: "https://github.com/Manish881-hub/seo-aeo-blogengine",
+        image: null,
+        highlights: ["No-write-tool safety invariant", "Slack approval workflow", "Demand-measured output"],
+        featured: false
+    },
+    {
+        title: "Autonomous Insurance Claims Agent",
+        problem: "First Notice of Loss intake is manual, slow, and error-prone across PDFs and free-text reports.",
+        solution: "Backend service that parses claim documents, extracts structured data with OpenRouter and Mistral, validates mandatory fields, routes by priority across 5 workflows, and justifies each decision in plain language.",
+        impact: "Automated FNOL pipeline with validation, smart routing, and explainable AI justifications.",
+        role: "AI Engineer",
+        stack: ["Python", "OpenRouter", "Mistral", "Docker", "Jest"],
+        status: "Featured",
+        link: "https://github.com/Manish881-hub/Autonomous-Insurance-Claims-Processing-Agent",
+        github: "https://github.com/Manish881-hub/Autonomous-Insurance-Claims-Processing-Agent",
+        image: null,
+        highlights: ["PDF + TXT claim parsing", "Mistral-powered extraction", "Explainable routing decisions"],
         featured: true
     },
     {
@@ -60,6 +159,7 @@ export const PROJECTS = [
         link: "https://github.com/Manish881-hub/EmptyCups",
         github: "https://github.com/Manish881-hub/EmptyCups",
         image: "/projects/empty-cups.svg",
+        highlights: ["One-command Docker deploy", "Flask REST API + dynamic JS frontend"],
         featured: false
     },
     {
@@ -73,6 +173,7 @@ export const PROJECTS = [
         link: "https://github.com/Manish881-hub/Real-Estate-Tenant-1",
         github: "https://github.com/Manish881-hub/Real-Estate-Tenant-1",
         image: "/projects/real-estate-tenant-platform.svg",
+        highlights: ["Tenant onboarding workflows", "React + Tailwind dashboard"],
         featured: false
     },
     {
@@ -86,6 +187,7 @@ export const PROJECTS = [
         link: "https://github.com/Manish881-hub/CertifyME",
         github: "https://github.com/Manish881-hub/CertifyME",
         image: "/projects/certifyme.svg",
+        highlights: ["Certificate generation + verification", "Flask backend with manage UI"],
         featured: false
     },
     {
@@ -99,6 +201,7 @@ export const PROJECTS = [
         link: "https://github.com/Manish881-hub/Todo-auth",
         github: "https://github.com/Manish881-hub/Todo-auth",
         image: "/projects/todo-app-with-authentication.svg",
+        highlights: ["Per-user data isolation", "Protected routes + persistent storage"],
         featured: false
     },
     {
@@ -112,6 +215,7 @@ export const PROJECTS = [
         link: "https://github.com/Manish881-hub/Login-Authentication-Firebase",
         github: "https://github.com/Manish881-hub/Login-Authentication-Firebase",
         image: "/projects/firebase-login-authentication.svg",
+        highlights: ["Drop-in reusable auth module", "Email/password login + onboarding"],
         featured: false
     }
 ];
@@ -120,50 +224,45 @@ export const BLOGS = [
     {
         title: "How Adtext Finds Relevant Ads in AI Conversations",
         excerpt: "Building contextual ad infrastructure that detects conversation intent and surfaces relevant offers natively within chat interfaces — without harming user experience.",
-        date: "Recent",
+        date: "2026",
         readTime: "4 min read",
-        platform: "Adtext Blog"
+        platform: "Adtext Blog",
+        url: "https://adtext.org/"
     },
     {
         title: "Lessons Building an AI Monetization SDK",
         excerpt: "What I learned building a full-stack AI advertising platform: architecture decisions, API design, and integrating LLM-powered recommendation pipelines.",
-        date: "Recent",
+        date: "2026",
         readTime: "5 min read",
-        platform: "Adtext Blog"
+        platform: "Adtext Blog",
+        url: "https://adtext.org/"
     },
     {
         title: "What MCP Changes for AI Applications",
         excerpt: "Exploring how the Model Context Protocol enables standardized tool interaction for LLMs and what it means for agentic workflow architecture.",
-        date: "Recent",
+        date: "2025",
         readTime: "3 min read",
-        platform: "LinkedIn"
+        platform: "LinkedIn",
+        url: PROFILE.socials.linkedin
     },
 ];
 
 export const TIMELINE_DATA = [
     {
         org: "Adtext",
-        role: "Full Stack Engineer",
-        date: "Jan 2026 - Jul 2026",
+        role: "Artificial Intelligence Engineer",
+        date: "Feb 2026 - Jul 2026",
         location: "Remote",
         type: "Work",
-        description: "Built a full-stack AI monetization platform from scratch using React, Next.js, FastAPI, Node.js, and PostgreSQL. Deployed on AWS using Docker. Integrated LLM APIs (OpenRouter, Mistral) for context-aware ad recommendations. Led go-to-market: cold outreach to 20+ publishers, built pitch decks, closed a pilot conversation. Made the strategic decision to sunset the product after assessing market readiness."
+        description: "Built and shipped an AI-powered contextual advertising platform for conversational AI, owning frontend, backend, AI infrastructure, deployment, and product strategy. Semantic targeting with FastAPI, sentence-transformers, ONNX Runtime, and contextual retrieval; OpenAI-compatible LLM workflows, streaming chat, Supabase, and multi-model support. Deployed on AWS with Docker and Cloudflare. Led discovery with 50+ AI founders."
     },
     {
         org: "Coldrecs Private Limited",
         role: "Full Stack Engineer",
-        date: "Jul 2025 - Dec 2025",
-        location: "Bangalore, India",
+        date: "Mar 2025 - Dec 2025",
+        location: "Bengaluru, India · Remote",
         type: "Work",
-        description: "Built and maintained secure applications for enterprise clients in legal, healthcare, and government sectors. Developed backend solutions using Spring MVC, Spring Boot, and Java. Built frontend interfaces using React.js, Next.js, and TypeScript. Managed MySQL databases using JDBC. Deployed applications on AWS (EC2, S3, IAM). Promoted from intern in 3 months."
-    },
-    {
-        org: "Coldrecs Private Limited",
-        role: "Software Engineer Intern",
-        date: "Mar 2025 - Jun 2025",
-        location: "Bangalore, India",
-        type: "Work",
-        description: "Contributed to building secure backend infrastructure for enterprise clients. Worked on systems design and backend integration using Java and Spring MVC. Collaborated on database design and API development. Recognized for performance and promoted to Full Stack Engineer."
+        description: "Shipped secure enterprise software for legal, healthcare, and government clients. Promoted from intern in 3 months. Backend with Java, Spring Boot, and Spring MVC; frontends in React.js, Next.js, and TypeScript; MySQL via JDBC; AWS (EC2, S3, IAM) deployments handled independently."
     },
     {
         org: "Trident Academy of Technology",
@@ -197,11 +296,10 @@ export const CURRENT_FOCUS = [
 ];
 
 export const BIO_LINKS = [
-    { label: "Personal Website", url: "/portfolio", icon: Globe },
+    { label: "Personal Website", url: "/", icon: Globe },
     { label: "GitHub Profile", url: PROFILE.socials.github, icon: Github },
     { label: "LinkedIn Profile", url: PROFILE.socials.linkedin, icon: Linkedin },
     { label: "Twitter (X)", url: PROFILE.socials.twitter, icon: Twitter },
     { label: "HackerRank", url: PROFILE.socials.hackerrank, icon: Code },
-    { label: "Reddit", url: PROFILE.socials.reddit, icon: Globe },
     { label: "Contact Me", url: `mailto:${PROFILE.email}`, icon: Mail },
 ];

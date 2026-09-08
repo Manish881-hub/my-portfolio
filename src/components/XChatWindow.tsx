@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef, startTransition } from "react";
+import React, { useState, useRef, useEffect, useId, startTransition } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
@@ -14,6 +15,7 @@ interface XChatWindowProps {
     placeholderText?: string;
     actionUrl?: string;
     ctaLabel?: string;
+    email?: string;
     accentColor?: string;
     backgroundColor?: string;
     textColor?: string;
@@ -24,7 +26,7 @@ interface XChatWindowProps {
 
 function IconEnvelopePlus({ color }: { color: string }) {
     return (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
         </svg>
@@ -33,7 +35,7 @@ function IconEnvelopePlus({ color }: { color: string }) {
 
 function IconDoubleChevron({ color }: { color: string }) {
     return (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m7 11 5-5 5 5" />
             <path d="m7 18 5-5 5 5" />
         </svg>
@@ -45,12 +47,13 @@ export default function XChatWindow({
     profileName = "Manish Bhakti Sagar",
     profileTitle = "Full Stack Engineer",
     profileHandle = "AWS Certified · AI Engineer · Cloud & Backend",
-    profileImage = "/profile.png",
+    profileImage = "/profile.jpeg",
     welcomeText = "Interested in AI products, AdTech, startups, or engineering? Send me a message.",
-    helperText = "I'll respond fastest on LinkedIn.",
+    helperText = "Type a note and send — it opens in your email app.",
     placeholderText = "Describe what you'd like to discuss…",
     actionUrl = "https://www.linkedin.com/in/manish-bhaktisagar",
     ctaLabel = "Connect on LinkedIn",
+    email = "bhaktisagar.manish@gmail.com",
     accentColor = "#6366f1",
     backgroundColor = "#000000",
     textColor = "#E7E9EA",
@@ -61,20 +64,40 @@ export default function XChatWindow({
     const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
+    const inputId = useId();
+    const panelId = useId();
 
     const toggleOpen = () => startTransition(() => setIsOpen((prev) => !prev));
 
-    const handleSubmit = () => {
+    // Focus the input when opened, so keyboard users land in the form.
+    useEffect(() => {
+        if (isOpen) inputRef.current?.focus();
+    }, [isOpen ]);
+
+    const openLinkedIn = () => {
         if (actionUrl && typeof window !== "undefined") {
-            window.open(actionUrl, "_blank");
-            startTransition(() => setInputValue(""));
+            window.open(actionUrl, "_blank", "noopener,noreferrer");
         }
+    };
+
+    // The note is functional: sending opens the visitor's email client
+    // with the message prefilled — nothing is silently discarded.
+    const handleSubmit = () => {
+        const message = inputValue.trim();
+        if (!message || typeof window === "undefined") return;
+        const subject = encodeURIComponent(`Portfolio inquiry for ${profileName}`);
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        startTransition(() => setInputValue(""));
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
             e.preventDefault();
             handleSubmit();
+        } else if (e.key === "Escape") {
+            e.preventDefault();
+            startTransition(() => setIsOpen(false));
         }
     };
 
@@ -98,23 +121,30 @@ export default function XChatWindow({
                     borderBottom: "none",
                 }}
             >
-                <div
+                <button
+                    type="button"
                     onClick={toggleOpen}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
                     style={{
                         height: 53,
                         minHeight: 53,
+                        width: "100%",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
                         padding: "0 16px",
                         cursor: "pointer",
+                        background: "transparent",
+                        border: "none",
                         borderBottom: isOpen ? `1px solid ${separatorColor}` : "none",
+                        font: "inherit",
                     }}
                 >
                     <span style={{ color: textColor, fontSize: 20, fontWeight: 700 }}>{buttonText}</span>
-                    <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+                    <span style={{ display: "flex", gap: 16, alignItems: "center" }} aria-hidden="true">
                         <IconEnvelopePlus color={textColor} />
-                        <div
+                        <span
                             style={{
                                 transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                                 transition: "transform 0.2s ease",
@@ -123,11 +153,12 @@ export default function XChatWindow({
                             }}
                         >
                             <IconDoubleChevron color={textColor} />
-                        </div>
-                    </div>
-                </div>
+                        </span>
+                    </span>
+                </button>
 
                 <div
+                    id={panelId}
                     style={{
                         flex: 1,
                         display: "flex",
@@ -135,6 +166,7 @@ export default function XChatWindow({
                         opacity: isOpen ? 1 : 0,
                         transition: "opacity 0.2s ease",
                         pointerEvents: isOpen ? "auto" : "none",
+                        visibility: isOpen ? "visible" : "hidden",
                     }}
                 >
                     <div
@@ -149,8 +181,11 @@ export default function XChatWindow({
                             gap: 6,
                         }}
                     >
-                        <div
-                            onClick={handleSubmit}
+                        <button
+                            type="button"
+                            onClick={openLinkedIn}
+                            aria-label={`${profileName} on LinkedIn`}
+                            tabIndex={isOpen ? 0 : -1}
                             style={{
                                 width: 64,
                                 height: 64,
@@ -158,14 +193,20 @@ export default function XChatWindow({
                                 overflow: "hidden",
                                 marginBottom: 8,
                                 cursor: "pointer",
+                                padding: 0,
+                                border: "none",
+                                background: "transparent",
                             }}
                         >
-                            <img
+                            <Image
                                 src={profileImage}
-                                alt={profileName}
+                                alt=""
+                                width={64}
+                                height={64}
+                                loading="lazy"
                                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                             />
-                        </div>
+                        </button>
                         <span style={{ color: textColor, fontSize: 18, fontWeight: 700 }}>{profileName}</span>
                         <span style={{ color: accentColor, fontSize: 15, fontWeight: 700 }}>{profileTitle}</span>
                         <span style={{ color: secondaryTextColor, fontSize: 13 }}>{profileHandle}</span>
@@ -175,7 +216,9 @@ export default function XChatWindow({
 
                         {/* CTA Button */}
                         <button
-                            onClick={handleSubmit}
+                            type="button"
+                            onClick={openLinkedIn}
+                            tabIndex={isOpen ? 0 : -1}
                             style={{
                                 marginTop: 16,
                                 display: "inline-flex",
@@ -194,12 +237,16 @@ export default function XChatWindow({
                             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}
                             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                         >
-                            <Linkedin size={16} />
+                            <Linkedin size={16} aria-hidden="true" />
                             {ctaLabel}
                         </button>
                     </div>
 
-                    <div
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            handleSubmit();
+                        }}
                         style={{
                             padding: "10px 16px 14px",
                             borderTop: `1px solid ${separatorColor}`,
@@ -209,14 +256,17 @@ export default function XChatWindow({
                             backgroundColor,
                         }}
                     >
-                        <div style={{ color: secondaryTextColor, fontSize: 11, lineHeight: 1.3 }}>{helperText}</div>
+                        <label htmlFor={inputId} style={{ color: secondaryTextColor, fontSize: 11, lineHeight: 1.3 }}>{helperText}</label>
                         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                             <div style={{ flex: 1, backgroundColor, borderRadius: 16, display: "flex", alignItems: "center" }}>
                                 <input
                                     ref={inputRef}
+                                    id={inputId}
                                     type="text"
                                     placeholder={placeholderText}
                                     value={inputValue}
+                                    autoComplete="off"
+                                    tabIndex={isOpen ? 0 : -1}
                                     onChange={(e) => startTransition(() => setInputValue(e.target.value))}
                                     onKeyDown={handleKeyDown}
                                     style={{
@@ -231,20 +281,26 @@ export default function XChatWindow({
                                     }}
                                 />
                             </div>
-                            <div
+                            <button
+                                type="submit"
+                                disabled={inputValue.trim().length === 0}
+                                tabIndex={isOpen ? 0 : -1}
+                                aria-label="Send message via email"
                                 style={{
-                                    opacity: inputValue.length > 0 ? 1 : 0.5,
-                                    cursor: inputValue.length > 0 ? "pointer" : "default",
+                                    background: "transparent",
+                                    border: "none",
+                                    padding: 4,
+                                    opacity: inputValue.trim().length > 0 ? 1 : 0.5,
+                                    cursor: inputValue.trim().length > 0 ? "pointer" : "default",
                                 }}
-                                onClick={inputValue.length > 0 ? handleSubmit : undefined}
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                     <line x1="22" y1="2" x2="11" y2="13" />
                                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                                 </svg>
-                            </div>
+                            </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </motion.div>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 
 interface LogoItem {
     src: string;
@@ -52,10 +53,15 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
                         className="flex-none flex items-center justify-center"
                         style={{ height: `${logoHeight}px` }}
                     >
-                        <img
+                        <Image
                             src={item.src}
                             alt={item.alt}
-                            className="h-full w-auto object-contain"
+                            width={80}
+                            height={logoHeight}
+                            unoptimized
+                            loading="lazy"
+                            style={{ height: `${logoHeight}px`, width: "auto" }}
+                            className="object-contain"
                             draggable={false}
                         />
                     </div>

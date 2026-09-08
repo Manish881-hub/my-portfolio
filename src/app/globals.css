@@ -14,6 +14,19 @@
   --border-primary: rgba(0, 0, 0, 0.9);
   --border-secondary: rgba(0, 0, 0, 0.05);
   --radius: 0.625rem;
+  color-scheme: light dark;
+}
+
+.dark {
+  --bg: #09090b;
+  --surface: #18181b;
+  --muted: #a1a1aa;
+  --text: #fafafa;
+  --accent: #818cf8;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.04);
+  --border-primary: rgba(255, 255, 255, 0.9);
+  --border-secondary: rgba(255, 255, 255, 0.08);
 }
 
 
@@ -65,4 +78,76 @@
 
 .border-card {
   border-color: var(--card-border) !important;
+}
+
+/* Clone-site (anuragd.me rebrand): link underline + arrow + dock entrance.
+   Original CSS — same interaction vocabulary, own tokens. */
+.font-fraunces {
+  font-family: var(--font-fraunces, ui-serif, Georgia, serif);
+}
+.clone-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 200ms ease, color 200ms ease;
+}
+.clone-link:hover {
+  text-decoration-color: currentColor;
+}
+.clone-arrow .arrow {
+  display: inline-block;
+  transform: translate(0, 0);
+  transition: transform 200ms ease;
+}
+.clone-arrow:hover .arrow {
+  transform: translate(1px, -1px);
+}
+
+@keyframes clone-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes clone-slide-in-from-bottom {
+  from { transform: translateY(2rem); }
+  to { transform: translateY(0); }
+}
+@keyframes clone-card-lift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2px); }
+}
+.motion-card-lift {
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+.motion-card-lift:hover {
+  animation: clone-card-lift 180ms ease-out both;
+}
+.animate-in {
+  animation: clone-fade-in 300ms ease-out both;
+}
+.animate-in.fade-in {
+  animation-name: clone-fade-in;
+}
+.animate-in.slide-in-from-bottom-8 {
+  animation-name: clone-fade-in, clone-slide-in-from-bottom;
+}
+
+/* Hide scrollbar but keep scrolling (timeline chart) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

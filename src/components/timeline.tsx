@@ -133,7 +133,7 @@ const Timeline = () => {
                                 initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
                                 className={`flex flex-col sm:flex-row items-center sm:items-start w-full relative group ${isLeft ? 'sm:flex-row' : 'sm:flex-row-reverse'
                                     }`}
                             >
@@ -146,7 +146,7 @@ const Timeline = () => {
                                         initial={{ scale: 0 }}
                                         whileInView={{ scale: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 + (index * 0.1) }}
+                                        transition={{ type: "spring", stiffness: 260, damping: 20, delay: Math.min(0.1 + (index * 0.1), 0.4) }}
                                         className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 shadow-xl group-hover:scale-110 transition-transform duration-300 group-hover:border-blue-500/30"
                                     >
                                         {item.type === 'work' && <Briefcase className="w-5 h-5 text-indigo-500" />}
