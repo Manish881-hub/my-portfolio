@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     url: "/",
-    title: "Manish Bhaktisagar | LLM Engineer",
+    title: "Manish Bhaktisagar",
     description:
       "LLM Engineer and Python Developer building AI assistants, RAG apps, and LLM-powered workflows on FastAPI and AWS.",
   },
