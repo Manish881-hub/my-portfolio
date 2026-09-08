@@ -1,0 +1,246 @@
+%-------------------------
+% Resume in Latex
+% Author : Manish Bhakti Sagar
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+
+
+\definecolor{cvblue}{HTML}{0E5484}
+\definecolor{black}{HTML}{130810}
+\definecolor{darkcolor}{HTML}{0F4539}
+\definecolor{cvgreen}{HTML}{3BD80D}
+\definecolor{taggreen}{HTML}{00E278}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{darkcolor}
+\colorlet{heading}{darkcolor}
+\colorlet{headingrule}{cvblue}
+\colorlet{accent}{darkcolor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+% \pagestyle{fancy}
+% \fancyhf{}  % clear all header and footer fields
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      \textit{\large#3} & \textit{\small #4} \\
+
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+
+\begin{center}
+    {\Huge\scshape Manish Bhakti Sagar} \\ \vspace{1pt}
+    LLM Engineer | Generative AI Engineer | Python Developer
+\\ \vspace{1pt}
+    \small \href{tel:+917536907707}{ \raisebox{-0.1\height}\faPhone\ \underline{+91-7536907707} ~} \href{mailto:bhaktisagar.manish@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{bhaktisagar.manish@gmail.com}} ~
+    \href{https://www.linkedin.com/in/manish-bhaktisagar/}{\raisebox{-0.2\height}\faLinkedinSquare\ \underline{manishbhakti}}  ~
+    \href{https://github.com/Manish881-hub}{\raisebox{-0.2\height}\faGithub\ \underline{Manish881-hub}} ~
+    \href{https://www.manish-bhaktisagar.is-a.dev/}{\raisebox{-0.2\height}\faPoll\ \underline{Portfolio}}
+    \vspace{-8pt}
+\end{center}
+
+\section {PROFESSIONAL SUMMARY}
+
+\small{LLM Engineer and Python Developer with experience building AI-powered applications using FastAPI, OpenAI APIs, Retrieval-Augmented Generation (RAG), conversational AI, and REST APIs. Experienced in developing AI assistants, LLM-powered workflows, and scalable backend services while optimizing AI applications for performance and reliability
+}
+\vspace{-8pt}
+%-----------EXPERIENCE-----------
+\section {EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Adtext }{Jan 2026 -- Present}
+      {\underline{AI Engineer}}{Remote}
+      \resumeItemListStart
+        \resumeItem{\normalsize{\textbf{Architected} an AI-powered contextual advertising platform using FastAPI, PostgreSQL, React, and Next.js, delivering personalized recommendations to conversational AI applications with \textbf{95\%+ accuracy}}}
+        \resumeItem{\normalsize{\textbf{Engineered} scalable REST APIs handling 5,000+ requests/day with average response times under \textbf{200ms}.}}
+        \resumeItem{\normalsize{\textbf{Integrated} LLM-powered workflows and prompt-driven contextual ad matching, improving ad relevance by \textbf{40\%}compared to rule-based approaches}}
+        \resumeItem{\normalsize{\textbf{Orchestrated} deployment on AWS with Docker and Cloudflare, achieving 99.9\% uptime and reducing deployment time by\textbf {60\%} through CI/CD automation.}}    {\underline{\href{https://demo.adtext.org}{\normalsize{\textcolor{Blue}{Live demo}}}}}
+        \resumeItem{\normalsize{\textbf{Led} customer discovery with \textbf{50+ AI founders}, validating product-market fit and gathering feedback that shaped the product roadmap.}}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Coldrecs Private Limited}{Mar 2025 -- Dec 2025}
+      {\underline{Full Stack Engineer}}{Remote}
+      \resumeItemListStart
+        \resumeItem{\normalsize{\textbf{Designed} and \textbf{implemented} REST APIs using Node.js and Java, supporting \textbf{10+ enterprise} clients in legal, healthcare, and government sectors.}}
+        \resumeItem{\normalsize{Reduced API response time by \textbf{35\%} through query optimization and database indexing strategies.}}
+         \resumeItem{\normalsize{\textbf{Managed} MySQL and PostgreSQL databases with \textbf{100\% data integrity} for compliance-critical applications}}
+        \resumeItem{\normalsize{\textbf{Deployed} applications on AWS (EC2, S3, IAM), achieving \textbf{99.9\% availability} across production environments.}}
+         \resumeItem{\normalsize{\textbf{Collaborated} in Agile teams across \textbf{5+ sprint cycles}, delivering features on schedule with \textbf{zero critical bugs in production}}}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-12pt}
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+       \resumeProjectHeading
+          {\textbf{\large{AI Voice Receptionist}\href{https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan}~{\raisebox{-0.2\height}\faGithub\ \underline{Github}} }   \href{https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan}{\raisebox{-0.1\height}\faExternalLink }}{July-2026}
+          \resumeItemListStart
+            \resumeItem{\normalsize{\textbf{Engineered} real-time voice interactions with <500ms latency using optimized STT + LLM + TTS pipelines.}}
+            \resumeItem{\normalsize{Implemented tool calling and conversational turn detection, achieving 92\% accuracy in understanding user intent}}
+            \resumeItem{\normalsize{\textbf{Containerized} the application with Docker and deployed on LiveKit Cloud, reducing setup time from \textbf{2 days to 2 hours}}}
+           {\href{https://drive.google.com/drive/folders/1sLyfz_vF0XEHdakmL6QUuRlRx-4gsWE9}{\underline{\normalsize{\textcolor{Blue}{Demo Video}}}}}
+          \vspace{-13pt}
+    \resumeSubHeadingListEnd
+    \resumeProjectHeading
+          {\textbf{\large{RAG Evaluation Framework}\href{https://github.com/Manish881-hub/livo-ai-rag-evaluation.git}~{\raisebox{-0.2\height}\faGithub\ \underline{Github}} }   \href{https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan}{\raisebox{-0.1\height}\faExternalLink }}{June-2026}
+          \resumeItemListStart
+            \resumeItem{\normalsize{\textbf{Designed} evaluation pipelines that measured Precision, Recall, F1-Score, MRR, and NDCG across \textbf{5+ retrieval strategies}.}}
+            \resumeItem{\normalsize{\textbf{Improved} retrieval quality by {28\% }through systematic comparison of chunk sizes and embedding models.}}
+            \resumeItem{\normalsize{\textbf{Created} automated visualization dashboards, reducing analysis time from \textbf{4 hours to 15 minutes}.}}
+            \resumeItem{\normalsize{\textbf{Tech Stack}: Python, TF-IDF, Cosine Similarity, NumPy, Matplotlib}}{\href{https://github.com/Manish881-hub/livo-ai-rag-evaluation.git}{\underline{\normalsize{\textcolor{Blue}{Github}}}}}
+          \vspace{-13pt}
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{TECHNICAL SKILLS}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    \textbf{Languages:} Python, Java, TypeScript, SQL \\
+    \textbf{AI \& LLM:} OpenAI API, LiveKit Agents, Generative AI,
+Prompt Engineering, Tool Calling, RAG \\
+    \textbf{Backend:}FastAPI, Node.js, REST APIs, WebSockets\\
+    \textbf{Databases:} PostgreSQL, MongoDB, MySQL  \\
+   \textbf{Frontend:} React,Next.js,Tailwind CSS,HTML,CSS.\\
+    \textbf{DevOps \& Cloud:}AWS (EC2, S3, IAM, RDS), Docker, Git, GitHub, CI/CD, Linux\\
+ \end{itemize}
+ \vspace{-15pt}
+
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Trident Academy of Technology, Bhubaneswar}{Dec 2022 -- Apr 2025}
+      {Bachelor of Technology in Computer Science \& Technology - \textbf{CGPA 7.5/10}}{Bhubaneswar, Odisha, India}
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS & ACHIEVEMENTS---------------
+\section{CERTIFICATIONS}
+
+$\sbullet[.75]$ Databricks Generative AI(2025) • Anthropic AI Fluency(2026) • Anthropic MCP • AWS Certified Cloud Practitioner(2025) \\
+
+$\sbullet[.75]$ GitHub Developer Program(2026) • HackerRank SQL • HackerRank JavaScript • OpenEDG Python(2021) \\
+
+\end{document}
