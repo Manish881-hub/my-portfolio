@@ -3,12 +3,12 @@ import CloneShell from "@/components/clone/CloneShell";
 import CloneResumePage from "@/components/clone/CloneResumePage";
 
 export const metadata: Metadata = {
-  title: "CV",
-  description: "CV — Manish Bhakti Sagar",
-  alternates: { canonical: "/cv" },
+  title: "Resume",
+  description: "Resume — Manish Bhakti Sagar, LLM Engineer",
+  alternates: { canonical: "/resume" },
 };
 
-export default function CVPage() {
+export default function ResumePage() {
   return (
     <CloneShell>
       <CloneResumePage />
