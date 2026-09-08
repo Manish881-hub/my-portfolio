@@ -1,4 +1,6 @@
-type Poster = { title: string; year: string; gradient: string[] };
+import Image from "next/image";
+
+type Poster = { title: string; year: string; gradient: string[]; poster?: string };
 
 export default function PosterRail({ items }: { items: Poster[] }) {
   return (
@@ -10,15 +12,26 @@ export default function PosterRail({ items }: { items: Poster[] }) {
           <div className="relative">
             <div className="flex snap-x snap-mandatory items-end overflow-x-auto overflow-y-hidden scroll-smooth pb-1 pr-9 overscroll-x-contain no-scrollbar gap-3 md:gap-4">
               {items.map((m) => (
-                <article key={m.title} className="group shrink-0 snap-start w-[96px] sm:w-[108px] lg:w-[116px]" title={`${m.title} / ${m.year}`}>
+                <article key={m.title} className="group shrink-0 snap-start scroll-ml-4 w-[96px] sm:w-[108px] lg:w-[116px]" title={`${m.title} / ${m.year}`}>
                   <div
                     className="relative block aspect-[2/3] w-full overflow-hidden rounded-[3px] border border-neutral-900/10 dark:border-white/10 shadow-[0_20px_30px_-26px_rgba(0,0,0,0.85)] outline-none transition-transform duration-500 will-change-transform group-hover:-translate-y-0.5"
                     aria-label={m.title}
+                    role="img"
                   >
-                    <div className="absolute inset-0 flex flex-col justify-between p-2" style={{ background: `linear-gradient(150deg, ${m.gradient[0]}, ${m.gradient[1]})` }}>
-                      <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/60">film</div>
-                      <div className="font-fraunces text-sm leading-tight text-white">{m.title}</div>
-                    </div>
+                    {m.poster ? (
+                      <Image
+                        src={m.poster}
+                        alt={m.title}
+                        fill
+                        sizes="(max-width: 640px) 96px, (max-width: 1024px) 108px, 116px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col justify-between p-2" style={{ background: `linear-gradient(150deg, ${m.gradient[0]}, ${m.gradient[1]})` }}>
+                        <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/60">film</div>
+                        <div className="font-fraunces text-sm leading-tight text-white">{m.title}</div>
+                      </div>
+                    )}
                     <div aria-hidden="true" className="absolute inset-y-0 left-0 z-10 w-[7%] border-r border-white/15 bg-black/25" />
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(112deg,rgba(255,255,255,0.18),transparent_18%,transparent_72%,rgba(0,0,0,0.12))]" />
                     <div className="pointer-events-none absolute inset-x-1.5 bottom-1.5 z-30 flex items-center justify-between gap-1">
@@ -35,6 +48,7 @@ export default function PosterRail({ items }: { items: Poster[] }) {
               ))}
             </div>
             <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.85)_70%,white)] dark:bg-[linear-gradient(90deg,transparent,rgba(10,10,10,0.85)_70%,#0a0a0a)]" />
+            <div aria-hidden="true" className="pointer-events-none absolute bottom-1 right-2 h-px w-8 bg-neutral-900/30 dark:bg-white/30" />
           </div>
         </div>
       </div>

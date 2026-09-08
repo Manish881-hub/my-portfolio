@@ -3,7 +3,17 @@
 import { useState } from "react";
 import { CLONE_SHELF } from "@/data/clonePagesData";
 
-type Book = (typeof CLONE_SHELF.books)[number];
+import Image from "next/image";
+
+type Book = {
+  title: string;
+  author?: string;
+  status: "read" | "reading";
+  progress: number;
+  spine: string[];
+  ink: string;
+  cover?: string;
+};
 
 const TILTS = ["0.96deg", "-0.48deg", "0.24deg"];
 
@@ -49,14 +59,31 @@ function Spine({ book, tilt }: { book: Book; tilt: string }) {
 }
 
 function Cover({ book }: { book: Book }) {
-  const [c1, c2] = book.cover;
+  if (book.cover) {
+    return (
+      <div className="absolute bottom-0 left-0 h-full w-full overflow-hidden rounded-[2px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.095)]">
+        <div className="relative h-full w-full overflow-hidden bg-[#fbfbfa]">
+          <Image
+            src={book.cover}
+            alt={`${book.title} cover`}
+            fill
+            sizes="160px"
+            className="object-contain p-[3px] drop-shadow-[0_8px_12px_rgba(0,0,0,0.18)]"
+          />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_34%,transparent_80%,rgba(0,0,0,0.045))]" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18)_0%,rgba(255,255,255,0.15)_3%,transparent_7%,transparent_100%)]" />
+      </div>
+    );
+  }
+  const [c1, c2] = book.spine.length >= 2 ? [book.spine[0], book.spine[1]] : ["#26384e", "#315f68"];
   return (
-    <div className="absolute bottom-0 left-0 overflow-hidden rounded-[2px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.095)]">
+    <div className="absolute bottom-0 left-0 h-full w-full overflow-hidden rounded-[2px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.095)]">
       <div className="relative h-full w-full overflow-hidden p-4 flex flex-col justify-between" style={{ background: `linear-gradient(135deg, ${c1}, ${c2} 60%, ${c1})` }}>
         <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/65">book</div>
         <div className="space-y-2">
           <div className="font-fraunces text-2xl leading-none text-white">{book.title}</div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{book.author}</div>
+          {book.author && <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{book.author}</div>}
         </div>
         <div>
           <div className="h-1 rounded-full bg-white/20 overflow-hidden">
