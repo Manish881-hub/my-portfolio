@@ -38,16 +38,30 @@ export const TECH_STACK = [
 export const PROJECTS = [
     {
         title: "SanketAura — Vastu & Palmistry by Ram Shankar",
-        problem: "SanketAura needed a marketing + booking site for scientific 16-zone Vastu consultations, non-demolition remedies, and Vedic palmistry in Gurugram (Sector-37D), Delhi NCR, and online worldwide.",
+        problem: "Freelance client work for SanketAura (by Ram Shankar) — they needed a marketing + booking site for scientific 16-zone Vastu consultations, non-demolition remedies, and Vedic palmistry in Gurugram (Sector-37D), Delhi NCR, and online worldwide.",
         solution: "React + Vite frontend with an Express server for the AI chatbot and Razorpay payments. Server prices every order from canonical pricing data — the client never sends an amount — and verifies each payment signature before a slot is reserved.",
-        impact: "Live client project with online checkout (Razorpay: UPI, cards, netbanking, wallets) plus manual-UPI + WhatsApp-confirm fallback; webhook endpoint logs captured payments for reconciliation.",
-        role: "Full-Stack Developer · Client Project",
+        impact: "Freelance engagement I designed, built, and shipped solo — live client project with online checkout (Razorpay: UPI, cards, netbanking, wallets) plus manual-UPI + WhatsApp-confirm fallback; webhook endpoint logs captured payments for reconciliation.",
+        role: "Freelance Developer — Client Work",
         stack: ["React", "Vite", "Express", "Razorpay", "AI Chatbot"],
         status: "Live",
         link: "https://www.sanketaura.com/",
         github: "https://github.com/Manish881-hub/Sanket-Aura",
         image: null,
         highlights: ["Live client site: sanketaura.com", "Razorpay checkout + signature-verified slot booking", "Server-side pricing + /api/razorpay-webhook reconciliation"],
+        featured: true
+    },
+    {
+        title: "AI Voice Receptionist",
+        problem: "A premium wellness resort needed to answer caller questions about packages without adding front-desk load.",
+        solution: "LiveKit Agents voice receptionist with OpenAI GPT, Cartesia TTS, Deepgram STT, a package-information tool, multimodal turn detection, and noise cancellation.",
+        impact: "Production voice agent for a real resort client, with a recorded demo of full caller conversations.",
+        role: "AI Engineer",
+        stack: ["TypeScript", "LiveKit Agents", "OpenAI", "Cartesia", "Deepgram"],
+        status: "Featured",
+        link: "https://drive.google.com/drive/folders/1sLyfz_vF0XEHdakmL6QUuRlRx-4gsWE9",
+        github: "https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan",
+        image: null,
+        highlights: ["Real client deployment", "Tool calling + turn detection", "Sub-500ms voice pipeline"],
         featured: true
     },
     {
@@ -65,6 +79,20 @@ export const PROJECTS = [
         featured: true
     },
     {
+        title: "TaskFlow — Realtime Collaborative Task Boards",
+        problem: "Teams need Trello/Jira-style boards with live collaboration without heavyweight setup or seat-based pricing.",
+        solution: "FastAPI + SQLAlchemy + PostgreSQL backend with native WebSockets, Next.js frontend, JWT access tokens with rotating opaque refresh tokens, and a one-command Docker Compose deploy with seed data.",
+        impact: "Live multi-user boards where teammates see card moves and comments instantly, with connection health tracking and clean local/Docker onboarding.",
+        role: "Full-Stack Developer",
+        stack: ["FastAPI", "PostgreSQL", "WebSockets", "Next.js", "Docker"],
+        status: "Live",
+        link: "https://taskflow-manish.vercel.app/",
+        github: "https://github.com/Manish881-hub/task-flow",
+        image: null,
+        highlights: ["Live at taskflow-manish.vercel.app", "Live multi-user updates over native WebSockets", "JWT + rotating refresh tokens, Docker Compose deploy"],
+        featured: false
+    },
+    {
         title: "ESP32 AI — LLM on a Microcontroller",
         problem: "Frontier language models need servers or GPUs, ruling out private, offline inference on tiny hardware.",
         solution: "Ported a 28.9M-parameter language model to run fully on-device on an $8 ESP32-S3, streaming tokens to an attached screen at ~9 tokens/second with nothing sent to a server.",
@@ -79,17 +107,17 @@ export const PROJECTS = [
         featured: true
     },
     {
-        title: "AI Voice Receptionist",
-        problem: "A premium wellness resort needed to answer caller questions about packages without adding front-desk load.",
-        solution: "LiveKit Agents voice receptionist with OpenAI GPT, Cartesia TTS, Deepgram STT, a package-information tool, multimodal turn detection, and noise cancellation.",
-        impact: "Production voice agent for a real resort client, with a recorded demo of full caller conversations.",
+        title: "Realtime Phone Agents",
+        problem: "Businesses miss calls and lead follow-ups outside working hours, and staffing a call center is expensive and slow to scale.",
+        solution: "Real-time phone agent platform with a streaming FastRTC voice agent, faster-whisper STT, Orpheus TTS, tool-calling property search over a Superlinked vector index, avatar personas, and outbound calling through a Gradio + FastAPI app.",
+        impact: "Production-style voice AI with Dockerized STT/TTS services, CI deploys, RunPod GPU orchestration, and 4 tutorial notebooks walking through the full pipeline.",
         role: "AI Engineer",
-        stack: ["TypeScript", "LiveKit Agents", "OpenAI", "Cartesia", "Deepgram"],
+        stack: ["Python", "FastRTC", "Faster-Whisper", "Orpheus TTS", "Superlinked", "FastAPI", "Docker"],
         status: "Featured",
-        link: "https://drive.google.com/drive/folders/1sLyfz_vF0XEHdakmL6QUuRlRx-4gsWE9",
-        github: "https://github.com/Manish881-hub/AI-Voice-Receptionist-Plan",
+        link: "https://github.com/Manish881-hub/phone-calling-agents",
+        github: "https://github.com/Manish881-hub/phone-calling-agents",
         image: null,
-        highlights: ["Real client deployment", "Tool calling + turn detection", "Sub-500ms voice pipeline"],
+        highlights: ["Streaming STT to LLM to TTS phone pipeline", "Superlinked vector property-search tools", "Dockerized services + RunPod GPU deploys"],
         featured: true
     },
     {
