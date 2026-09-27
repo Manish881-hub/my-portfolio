@@ -20,13 +20,13 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
     {
         id: 1,
-        title: "Full Stack Engineer",
-        role: "Adtext (Startup)",
-        date: "Jan 2026 - Jul 2026",
+        title: "Artificial Intelligence Engineer",
+        role: "Adtext · Full-time · Remote",
+        date: "Feb 2026 - Jul 2026 · 6 mos",
         link: "https://adtext.org/",
-        description: "Built a full-stack AI monetization platform from scratch using React, Next.js, FastAPI, Node.js, and PostgreSQL. Deployed on AWS using Docker. Integrated LLM APIs (OpenRouter, Mistral) for context-aware ad recommendations. Led go-to-market: cold outreach to 20+ publishers, built pitch decks, closed a pilot conversation. Made the strategic decision to sunset the product after assessing market readiness.",
+        description: "Built and shipped an AI-powered contextual advertising platform for conversational AI applications, owning development across frontend, backend, AI infrastructure, deployment, and product strategy. Designed semantic targeting pipelines using FastAPI, sentence-transformer embeddings, ONNX Runtime, and contextual retrieval for real-time ad recommendations. Integrated OpenAI-compatible LLM workflows, streaming chat, Supabase, and multi-model AI support. Deployed scalable APIs and cloud infra with FastAPI, Next.js, PostgreSQL, Docker, AWS, and Cloudflare. Led customer discovery with 50+ AI founders to validate demand and shape product direction.",
         type: "work",
-        tags: ["FastAPI", "React", "Next.js", "Node.js", "PostgreSQL", "AWS", "Docker", "LLM"]
+        tags: ["Python", "FastAPI", "Next.js", "React", "PostgreSQL", "Redis", "OpenAI API", "Sentence Transformers", "ONNX Runtime", "Docker", "AWS", "Cloudflare", "LLM/AI Integration"]
     },
     {
         id: 2,
