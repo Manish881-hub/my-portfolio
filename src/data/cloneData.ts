@@ -28,20 +28,36 @@ export const CLONE_SUMMARY = [
   { icon: "☁️", label: "FastAPI · OpenAI APIs · AWS · Docker", bg: "bg-emerald-100 dark:bg-emerald-900/30", fg: "text-emerald-600 dark:text-emerald-400" },
 ];
 
+// Title lookup so home-strip entries don't break when PROJECTS order changes.
+const byTitle = (t: string) => {
+  const p = ALL_PROJECTS.find((p) => p.title === t);
+  if (!p) throw new Error(`cloneData: project not found: ${t}`);
+  return p;
+};
+
 export const CLONE_PROJECTS = [
   {
     initial: "S",
-    title: ALL_PROJECTS[0].title,
-    href: ALL_PROJECTS[0].link,
+    title: byTitle("SanketAura — Vastu & Palmistry by Ram Shankar").title,
+    href: byTitle("SanketAura — Vastu & Palmistry by Ram Shankar").link,
     status: "Live · Client",
     statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
       "Marketing + booking site for Vastu & palmistry — React + Vite, Express AI chatbot, Razorpay checkout with signature-verified booking.",
   },
   {
+    initial: "A",
+    title: byTitle("AI Voice Receptionist").title,
+    href: byTitle("AI Voice Receptionist").link,
+    status: "Featured",
+    statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
+    description:
+      "LiveKit voice receptionist for a resort client — GPT, Cartesia TTS, Deepgram STT, sub-500ms pipeline.",
+  },
+  {
     initial: "D",
-    title: ALL_PROJECTS[1].title,
-    href: ALL_PROJECTS[1].link,
+    title: byTitle("Dimewise AI Finance APP").title,
+    href: byTitle("Dimewise AI Finance APP").link,
     status: "Live",
     statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
@@ -49,12 +65,30 @@ export const CLONE_PROJECTS = [
   },
   {
     initial: "E",
-    title: ALL_PROJECTS[2].title,
-    href: ALL_PROJECTS[2].link,
+    title: byTitle("ESP32 AI — LLM on a Microcontroller").title,
+    href: byTitle("ESP32 AI — LLM on a Microcontroller").link,
     status: "Featured",
     statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
       "28.9M-param LLM running fully on-device on an $8 ESP32-S3 at ~9 tokens/sec — private, offline inference.",
+  },
+  {
+    initial: "P",
+    title: byTitle("Realtime Phone Agents").title,
+    href: byTitle("Realtime Phone Agents").link,
+    status: "New",
+    statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
+    description:
+      "Streaming FastRTC phone agents — faster-whisper STT, Orpheus TTS, Superlinked vector search tools.",
+  },
+  {
+    initial: "T",
+    title: byTitle("TaskFlow — Realtime Collaborative Task Boards").title,
+    href: byTitle("TaskFlow — Realtime Collaborative Task Boards").link,
+    status: "Live",
+    statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
+    description:
+      "Trello-style live boards — FastAPI + WebSockets, Next.js, JWT rotation, Docker Compose deploy.",
   },
   {
     initial: "R",
