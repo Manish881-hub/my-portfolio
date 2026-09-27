@@ -50,7 +50,7 @@ export const CLONE_EDUCATION_LIST = [
   {
     org: "DPS Vidyapeeth",
     date: "2006 – 2018",
-    degree: "Class X",
+    degree: "Class X — CBSE",
   },
 ];
 export const CLONE_CERTS = CV_CERTIFICATIONS;
