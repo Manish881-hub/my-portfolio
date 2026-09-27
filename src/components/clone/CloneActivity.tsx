@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 // Structural rebuild of target's activity cards — original code + Manish data.
 // GitHub heatmap is LIVE (public contributions API for Manish881-hub), with
@@ -73,6 +73,17 @@ export function GithubActivityCard() {
   const [tip, setTip] = useState<{ text: string; x: number; y: number } | null>(null);
   const [live, setLive] = useState<Record<string, { count: number; level: number }> | null>(null);
   const weeks = RANGE_WEEKS[range];
+  // Cell size shrinks as the range grows so 3mo/6mo fit without
+  // scrolling; 1yr still scrolls horizontally (see scrollRef below)
+  // instead of being cropped by overflow-hidden.
+  const cell = range === "1yr" ? 10 : range === "6mo" ? 12 : 13;
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Keep the most recent weeks visible when the range changes.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+  }, [range, live]);
 
   // Live contributions for Manish881-hub; fallback stays deterministic.
   useEffect(() => {
@@ -182,24 +193,28 @@ export function GithubActivityCard() {
           </div>
 
           <div className="flex-1 flex flex-col justify-center animate-in fade-in duration-150">
-            <div className="space-y-4">
-              <div className="flex items-center text-[10px] text-neutral-500/70 w-full mb-1 overflow-hidden justify-center" style={{ gap: "3px" }}>
-                {monthLabels.map((m, i) => (
-                  <div key={i} className="text-center flex-shrink-0 whitespace-nowrap" style={{ width: "13px" }}>
-                    {m}
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-start overflow-hidden pb-2 w-full justify-center" style={{ gap: "3px" }}>
-                <div className="flex min-w-0 items-start" style={{ gap: "3px" }}>
+            <div
+              ref={scrollRef}
+              className="overflow-x-auto no-scrollbar pb-2"
+              aria-label={`GitHub contributions, last ${range}`}
+            >
+              <div className="min-w-max mx-auto w-fit space-y-1.5">
+                <div className="flex items-center text-[10px] text-neutral-500/70" style={{ gap: "3px" }}>
+                  {monthLabels.map((m, i) => (
+                    <div key={i} className="text-center flex-shrink-0 whitespace-nowrap overflow-hidden" style={{ width: `${cell}px` }}>
+                      {m}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-start" style={{ gap: "3px" }}>
                   {grid.map((col, w) => (
-                    <div key={`${range}-${w}`} className="flex flex-col flex-shrink min-w-0" style={{ gap: "2px" }}>
-                      {col.map((cell, d) => {
-                        const dateStr = formatDate(cell.date);
+                    <div key={`${range}-${w}`} className="flex flex-col flex-shrink-0" style={{ gap: "3px" }}>
+                      {col.map((cellData, d) => {
+                        const dateStr = formatDate(cellData.date);
                         const label =
-                          cell.count === 0
+                          cellData.count === 0
                             ? `No contributions on ${dateStr}`
-                            : `${cell.count} contribution${cell.count === 1 ? "" : "s"} on ${dateStr}`;
+                            : `${cellData.count} contribution${cellData.count === 1 ? "" : "s"} on ${dateStr}`;
                         const showTip = (clientX: number, clientY: number) =>
                           setTip({ text: label, x: clientX, y: clientY });
                         return (
@@ -216,8 +231,8 @@ export function GithubActivityCard() {
                             }}
                             onBlur={() => setTip(null)}
                             onClick={(e) => showTip(e.clientX || window.innerWidth / 2, e.clientY || 200)}
-                            className={`appearance-none border-0 p-0 rounded-[1px] sm:rounded-[1.5px] lg:rounded-[2px] transition-[transform,box-shadow] duration-150 ease-out hover:scale-125 hover:ring-1 hover:ring-neutral-900/40 dark:hover:ring-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40 ${cellClass(cell.level)} cursor-pointer`}
-                            style={{ width: "13px", height: "13px" }}
+                            className={`appearance-none border-0 p-0 rounded-[2px] transition-[transform,box-shadow] duration-150 ease-out hover:scale-125 hover:ring-1 hover:ring-neutral-900/40 dark:hover:ring-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/40 ${cellClass(cellData.level)} cursor-pointer`}
+                            style={{ width: `${cell}px`, height: `${cell}px` }}
                           />
                         );
                       })}
@@ -225,18 +240,21 @@ export function GithubActivityCard() {
                   ))}
                 </div>
               </div>
-              {tip && <TipBubble tip={tip} />}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1 sm:gap-2 text-xs text-neutral-500">
-                  <span className="hidden sm:inline">Less</span>
-                  <div className="flex gap-0.5 sm:gap-1">
-                    {[0, 1, 2, 3, 4].map((lv) => (
-                      <div key={lv} className={`w-[6px] h-[6px] sm:w-[8px] sm:h-[8px] lg:w-[10px] lg:h-[10px] rounded-[1px] sm:rounded-[1.5px] lg:rounded-[2px] ${cellClass(lv)}`} />
-                    ))}
-                  </div>
-                  <span className="hidden sm:inline">More</span>
+            </div>
+            {tip && <TipBubble tip={tip} />}
+            <div className="flex items-center justify-between pt-1">
+              <div className="flex items-center gap-1 sm:gap-2 text-xs text-neutral-500">
+                <span className="hidden sm:inline">Less</span>
+                <div className="flex gap-0.5 sm:gap-1">
+                  {[0, 1, 2, 3, 4].map((lv) => (
+                    <div key={lv} className={`w-[6px] h-[6px] sm:w-[8px] sm:h-[8px] lg:w-[10px] lg:h-[10px] rounded-[1px] sm:rounded-[1.5px] lg:rounded-[2px] ${cellClass(lv)}`} />
+                  ))}
                 </div>
+                <span className="hidden sm:inline">More</span>
               </div>
+              {range === "1yr" && (
+                <span className="font-mono text-[10px] text-neutral-400 dark:text-neutral-500">scroll →</span>
+              )}
             </div>
           </div>
         </div>
