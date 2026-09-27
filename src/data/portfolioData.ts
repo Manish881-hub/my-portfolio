@@ -37,17 +37,17 @@ export const TECH_STACK = [
 
 export const PROJECTS = [
     {
-        title: "Adtext",
-        problem: "AI chat apps struggle to monetize without harming user experience.",
-        solution: "Built contextual ad infrastructure that detects conversation intent and surfaces relevant offers natively within chat interfaces.",
-        impact: "Building monetization infrastructure for conversational AI applications — enabling contextual ad delivery inside AI chat experiences.",
-        role: "Founder, Product Builder, Full-Stack Engineer",
-        stack: ["Next.js", "FastAPI", "PostgreSQL", "OpenAI"],
-        status: "Building",
-        link: "https://adtext.org/",
-        github: null,
-        image: "/projects/adtext.svg",
-        highlights: ["Live MVP at adtext.org", "20+ publisher outreaches, 1 pilot conversation", "LLM recommendations via OpenRouter & Mistral"],
+        title: "SanketAura — Vastu & Palmistry by Ram Shankar",
+        problem: "SanketAura needed a marketing + booking site for scientific 16-zone Vastu consultations, non-demolition remedies, and Vedic palmistry in Gurugram (Sector-37D), Delhi NCR, and online worldwide.",
+        solution: "React + Vite frontend with an Express server for the AI chatbot and Razorpay payments. Server prices every order from canonical pricing data — the client never sends an amount — and verifies each payment signature before a slot is reserved.",
+        impact: "Live client project with online checkout (Razorpay: UPI, cards, netbanking, wallets) plus manual-UPI + WhatsApp-confirm fallback; webhook endpoint logs captured payments for reconciliation.",
+        role: "Full-Stack Developer · Client Project",
+        stack: ["React", "Vite", "Express", "Razorpay", "AI Chatbot"],
+        status: "Live",
+        link: "https://www.sanketaura.com/",
+        github: "https://github.com/Manish881-hub/Sanket-Aura",
+        image: null,
+        highlights: ["Live client site: sanketaura.com", "Razorpay checkout + signature-verified slot booking", "Server-side pricing + /api/razorpay-webhook reconciliation"],
         featured: true
     },
     {
@@ -250,11 +250,11 @@ export const BLOGS = [
 export const TIMELINE_DATA = [
     {
         org: "Adtext",
-        role: "Artificial Intelligence Engineer",
-        date: "Feb 2026 - Jul 2026",
+        role: "Artificial Intelligence Engineer · Full-time",
+        date: "Feb 2026 - Jul 2026 · 6 mos",
         location: "Remote",
         type: "Work",
-        description: "Built and shipped an AI-powered contextual advertising platform for conversational AI, owning frontend, backend, AI infrastructure, deployment, and product strategy. Semantic targeting with FastAPI, sentence-transformers, ONNX Runtime, and contextual retrieval; OpenAI-compatible LLM workflows, streaming chat, Supabase, and multi-model support. Deployed on AWS with Docker and Cloudflare. Led discovery with 50+ AI founders."
+        description: "Built and shipped an AI-powered contextual advertising platform for conversational AI, owning frontend, backend, AI infrastructure, deployment, and product strategy. Semantic targeting with FastAPI, sentence-transformer embeddings, ONNX Runtime, and contextual retrieval; OpenAI-compatible LLM workflows, streaming chat, Supabase, and multi-model support. Scalable APIs and cloud infra with FastAPI, Next.js, React, PostgreSQL, Redis, Docker, AWS, and Cloudflare. Led discovery with 50+ AI founders. Skills: LLM/AI Integration, Python and full-stack AI delivery. Live: https://adtext.org/"
     },
     {
         org: "Coldrecs Private Limited",
@@ -290,7 +290,7 @@ export const CERTIFICATIONS = [
 ];
 
 export const CURRENT_FOCUS = [
-    { icon: "🚀", label: "Building Adtext — AI Monetization Infrastructure" },
+    { icon: "🚀", label: "Ex-Adtext AI Engineer — shipped contextual ads for AI chat" },
     { icon: "🤖", label: "Exploring Agentic AI Systems & MCP" },
     { icon: "☁️", label: "Shipping Cloud-Native Products" },
 ];

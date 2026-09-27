@@ -271,7 +271,7 @@ export const CLONE_SHELF = {
     {
       title: "Adtext — contextual ads for AI chat",
       href: "https://adtext.org/",
-      desc: "My build: monetization infrastructure for conversational AI — intent detection meets native offers.",
+      desc: "Past work as AI Engineer (Feb–Jul 2026): monetization infrastructure for conversational AI — intent detection meets native offers.",
       date: "2026",
     },
     {
@@ -327,7 +327,7 @@ export const CLONE_USES = [
 ];
 
 export const CLONE_NOW = [
-  "Building Adtext monetization infra",
+  "Ex-Adtext AI Engineer (Feb–Jul 2026) — shipped contextual ads for AI chat",
   "Shipping RAG + voice-agent evals",
   "Open to LLM / Backend / Cloud roles — remote",
 ];

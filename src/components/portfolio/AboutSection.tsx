@@ -49,9 +49,10 @@ export default function AboutSection() {
         </p>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
           Experienced in developing AI assistants, LLM-powered workflows, and
-          scalable backend services — currently shipping a contextual
-          advertising platform (Adtext) with LLM-driven recommendations, plus
-          side projects in voice agents and RAG evaluation. AWS Certified
+          scalable backend services — previously Artificial Intelligence Engineer at
+          Adtext (Feb–Jul 2026, Remote), where I built and shipped a contextual
+          advertising platform with semantic targeting, LLM-driven recommendations,
+          and cloud deployment on AWS. Side projects in voice agents and RAG evaluation. AWS Certified
           Cloud Practitioner with hands-on Docker, Linux, and CI/CD experience.
         </p>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mt-4">

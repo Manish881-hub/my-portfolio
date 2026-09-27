@@ -23,20 +23,20 @@ export const CLONE_SUMMARY = [
   { icon: "🤖", label: "LLM Engineer — AI assistants, RAG & agentic workflows", bg: "bg-blue-100 dark:bg-blue-900/30", fg: "text-blue-600 dark:text-blue-400" },
   { icon: "🎓", label: "B.Tech CS @ Trident Academy of Technology", bg: "bg-green-100 dark:bg-green-900/30", fg: "text-green-600 dark:text-green-400" },
   { icon: "💻", label: "Prev Full Stack @ Coldrecs (Java, Spring, React, AWS)", bg: "bg-purple-100 dark:bg-purple-900/30", fg: "text-purple-600 dark:text-purple-400" },
-  { icon: "🚀", label: "Building Adtext — contextual ads for AI chat", bg: "bg-red-100 dark:bg-red-900/30", fg: "text-red-600 dark:text-red-400" },
+  { icon: "🚀", label: "Ex-AI Engineer @ Adtext (Feb–Jul 2026) — shipped contextual ads for AI chat", bg: "bg-red-100 dark:bg-red-900/30", fg: "text-red-600 dark:text-red-400" },
   { icon: "📍", label: "Bhubaneswar, Odisha, India", bg: "bg-orange-100 dark:bg-orange-900/30", fg: "text-orange-600 dark:text-orange-400" },
   { icon: "☁️", label: "FastAPI · OpenAI APIs · AWS · Docker", bg: "bg-emerald-100 dark:bg-emerald-900/30", fg: "text-emerald-600 dark:text-emerald-400" },
 ];
 
 export const CLONE_PROJECTS = [
   {
-    initial: "A",
+    initial: "S",
     title: ALL_PROJECTS[0].title,
     href: ALL_PROJECTS[0].link,
-    status: "In Progress",
-    statusStyle: "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300",
+    status: "Live · Client",
+    statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
-      "Contextual ad infrastructure for AI chat — detects conversation intent and surfaces relevant offers natively.",
+      "Marketing + booking site for Vastu & palmistry — React + Vite, Express AI chatbot, Razorpay checkout with signature-verified booking.",
   },
   {
     initial: "D",
@@ -46,6 +46,15 @@ export const CLONE_PROJECTS = [
     statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
       "AI-powered finance dashboard with auth, real-time budgeting, and intelligent insights in one platform.",
+  },
+  {
+    initial: "E",
+    title: ALL_PROJECTS[2].title,
+    href: ALL_PROJECTS[2].link,
+    status: "Featured",
+    statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
+    description:
+      "28.9M-param LLM running fully on-device on an $8 ESP32-S3 at ~9 tokens/sec — private, offline inference.",
   },
   {
     initial: "R",
