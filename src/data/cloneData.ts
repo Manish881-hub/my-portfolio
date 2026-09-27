@@ -43,7 +43,7 @@ export const CLONE_PROJECTS = [
     status: "Live · Client",
     statusStyle: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300",
     description:
-      "Marketing + booking site for Vastu & palmistry — React + Vite, Express AI chatbot, Razorpay checkout with signature-verified booking.",
+      "Client project, built solo — marketing + booking site for Vastu & palmistry. React + Vite, Express AI chatbot, Razorpay checkout with signature-verified booking.",
   },
   {
     initial: "A",

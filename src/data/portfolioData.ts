@@ -38,9 +38,9 @@ export const TECH_STACK = [
 export const PROJECTS = [
     {
         title: "SanketAura — Vastu & Palmistry by Ram Shankar",
-        problem: "Freelance client work for SanketAura (by Ram Shankar) — they needed a marketing + booking site for scientific 16-zone Vastu consultations, non-demolition remedies, and Vedic palmistry in Gurugram (Sector-37D), Delhi NCR, and online worldwide.",
+        problem: "Client project for SanketAura (by Ram Shankar) — they needed a marketing + booking site for scientific 16-zone Vastu consultations, non-demolition remedies, and Vedic palmistry in Gurugram (Sector-37D), Delhi NCR, and online worldwide.",
         solution: "React + Vite frontend with an Express server for the AI chatbot and Razorpay payments. Server prices every order from canonical pricing data — the client never sends an amount — and verifies each payment signature before a slot is reserved.",
-        impact: "Freelance engagement I designed, built, and shipped solo — live client project with online checkout (Razorpay: UPI, cards, netbanking, wallets) plus manual-UPI + WhatsApp-confirm fallback; webhook endpoint logs captured payments for reconciliation.",
+        impact: "Designed, built, and shipped solo for a client — live project with online checkout (Razorpay: UPI, cards, netbanking, wallets) plus manual-UPI + WhatsApp-confirm fallback; webhook endpoint logs captured payments for reconciliation.",
         role: "Freelance Developer — Client Work",
         stack: ["React", "Vite", "Express", "Razorpay", "AI Chatbot"],
         status: "Live",
