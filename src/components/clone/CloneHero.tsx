@@ -7,7 +7,7 @@ import Reveal from "./Reveal";
 export default function CloneHero() {
   return (
     <section className="py-6 md:py-8">
-      <div className="grid grid-cols-1 md:grid-cols-[1.25fr,1fr] gap-8 md:gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[1.25fr_1fr] gap-8 md:gap-12 items-start">
         <Reveal className="space-y-6 md:space-y-8 max-w-2xl order-1 md:col-start-1">
           <div className="space-y-3 max-w-[38ch]">
             <h1 className="font-mono font-semibold tracking-tight text-neutral-900 dark:text-neutral-50 text-3xl md:text-4xl lg:text-5xl leading-tight">
